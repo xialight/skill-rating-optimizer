@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Skill Rating Optimizer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color-scheme: dark light;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #05060a;
+      color: #f7f7ff;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .app {
+      max-width: 1100px;
+      width: 100%;
+      padding: 1.5rem;
+      box-sizing: border-box;
+    }
+
+    .card {
+      background: radial-gradient(circle at top, #1b1f3b, #05060a 55%);
+      border-radius: 1.25rem;
+      padding: 1.5rem 1.75rem 2rem;
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 1.8rem;
+      letter-spacing: 0.04em;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      margin-bottom: 1rem;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .badge {
+      font-size: 0.7rem;
+      border-radius: 999px;
+      padding: 0.15rem 0.6rem;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.9;
+    }
+
+    .aptitude-info {
+      font-size: 0.75rem;
+      opacity: 0.9;
+      margin-bottom: 1.2rem;
+    }
+
+    .aptitude-info code {
+      background: rgba(0, 0, 0, 0.35);
+      padding: 0.08rem 0.25rem;
+      border-radius: 0.3rem;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: flex-end;
+      margin-bottom: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      min-width: 130px;
+    }
+
+    label {
+      font-size: 0.8rem;
+      opacity: 0.9;
+    }
+
+    input[type="number"],
+    input[type="text"],
+    select {
+      background: rgba(4, 10, 25, 0.85);
+      color: #f7f7ff;
+      border-radius: 0.6rem;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 0.4rem 0.55rem;
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    input[type="number"]:focus,
+    input[type="text"]:focus,
+    select:focus {
+      border-color: #7dd3fc;
+      box-shadow: 0 0 0 1px rgba(125, 211, 252, 0.7);
+    }
+
+    button {
+      border-radius: 0.7rem;
+      border: none;
+      cursor: pointer;
+      padding: 0.45rem 0.9rem;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #22c55e);
+      color: #020617;
+      box-shadow: 0 10px 25px rgba(34, 197, 94, 0.35);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #e5e7eb;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+    }
+
+    .btn-danger {
+      background: transparent;
+      border: 1px solid rgba(248, 113, 113, 0.7);
+      color: #fecaca;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline:hover,
+    .btn-danger:hover {
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .btn-sm {
+      padding: 0.2rem 0.5rem;
+      font-size: 0.75rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 0.35rem 0.4rem;
+      text-align: left;
+    }
+
+    th {
+      font-size: 0.75rem;
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    tbody tr:nth-child(even) {
+      background: rgba(15, 23, 42, 0.3);
+    }
+
+    tbody tr:hover {
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    td input,
+    td select {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .type-pill {
+      border-radius: 999px;
+      padding: 0.1rem 0.4rem;
+      font-size: 0.75rem;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .type-Gold { border-color: #facc15; color: #facc15; }
+    .type-Yellow { border-color: #fde047; color: #fde047; }
+    .type-Blue { border-color: #60a5fa; color: #bfdbfe; }
+    .type-Red { border-color: #f97373; color: #fecaca; }
+    .type-Green { border-color: #4ade80; color: #bbf7d0; }
+    .type-Purple { border-color: #a855f7; color: #e9d5ff; }
+    .type-Inherit { border-color: #e5e7eb; color: #e5e7eb; }
+
+    .results {
+      margin-top: 1.4rem;
+      padding-top: 1.1rem;
+      border-top: 1px dashed rgba(148, 163, 184, 0.6);
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.2rem;
+    }
+
+    .results-header {
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .highlight {
+      font-weight: 600;
+      color: #7dd3fc;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .stat {
+      background: rgba(15, 23, 42, 0.75);
+      border-radius: 0.8rem;
+      padding: 0.5rem 0.7rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.8rem;
+    }
+
+    .stat-label {
+      opacity: 0.75;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .stat-value {
+      font-size: 0.9rem;
+      margin-top: 0.2rem;
+    }
+
+    .skill-list {
+      font-size: 0.8rem;
+      list-style: none;
+      padding-left: 0;
+      margin: 0.3rem 0 0;
+    }
+
+    .skill-list li {
+      margin-bottom: 0.25rem;
+    }
+
+    .pill-small {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 0.03rem 0.35rem;
+      font-size: 0.7rem;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      margin-left: 0.35rem;
+    }
+
+    .note {
+      font-size: 0.7rem;
+      opacity: 0.75;
+      margin-top: 0.4rem;
+    }
+
+    .error {
+      font-size: 0.8rem;
+      color: #fecaca;
+      margin-top: 0.25rem;
+    }
+
+    @media (max-width: 800px) {
+      .card {
+        padding: 1.2rem 1rem 1.5rem;
+      }
+
+      .results {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="card">
+      <h1>Skill Rating Optimizer</h1>
+      <div class="subtitle">
+        Enter your skills, their SP costs and ratings. Then set your SP budget and let the optimizer find the best combination.
+      </div>
+      <div class="badge-row">
+        <span class="badge">Inherit</span>
+        <span class="badge">Gold</span>
+        <span class="badge">Yellow</span>
+        <span class="badge">Blue</span>
+        <span class="badge">Red</span>
+        <span class="badge">Green</span>
+        <span class="badge">Purple</span>
+      </div>
+      <div class="aptitude-info">
+        Aptitude multipliers (applied automatically for <strong>Gold / Yellow / Blue / Red</strong>):<br />
+        <code>A = ×1.00</code>,
+        <code>B = ×0.90</code>,
+        <code>C = ×0.80</code>,
+        <code>D = ×0.70</code>
+        &nbsp;|&nbsp;
+        Other types ignore aptitude and use the base rating as-is.
+      </div>
+
+      <div class="controls">
+        <div class="form-group">
+          <label for="budgetInput">SP Budget</label>
+          <input type="number" id="budgetInput" min="0" step="1" value="1000" />
+        </div>
+        <div class="form-group">
+          <label>&nbsp;</label>
+          <button id="optimizeBtn" class="btn-primary" type="button">
+            🧮 Optimize Build
+          </button>
+        </div>
+        <div class="form-group">
+          <label>&nbsp;</label>
+          <button id="addRowBtn" class="btn-outline" type="button">
+            ➕ Add Skill Row
+          </button>
+        </div>
+        <div class="form-group">
+          <label>&nbsp;</label>
+          <button id="clearRowsBtn" class="btn-danger" type="button">
+            🗑 Clear All Skills
+          </button>
+        </div>
+      </div>
+
+      <div id="errorBox" class="error" style="display:none;"></div>
+
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 18%;">Name</th>
+            <th style="width: 12%;">Type</th>
+            <th style="width: 11%;">SP Cost</th>
+            <th style="width: 12%;">Base Rating</th>
+            <th style="width: 12%;">Aptitude</th>
+            <th style="width: 11%;">Effective Rating</th>
+            <th style="width: 7%;">Buy?</th>
+            <th style="width: 7%;">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody id="skillsBody">
+        </tbody>
+      </table>
+
+      <div class="results" id="resultsSection" style="display:none;">
+        <div>
+          <div class="results-header">
+            📊 <span class="highlight">Best Combination</span> within your SP budget
+          </div>
+          <div class="stat-grid">
+            <div class="stat">
+              <div class="stat-label">Total Rating</div>
+              <div class="stat-value" id="statRating">0</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">SP Used / Budget</div>
+              <div class="stat-value" id="statSP">0 / 0</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Skill Count</div>
+              <div class="stat-value" id="statCount">0</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Rating per SP</div>
+              <div class="stat-value" id="statEfficiency">0</div>
+            </div>
+          </div>
+          <div class="note">
+            Rating uses <strong>base rating × aptitude multiplier</strong> for eligible colors.
+          </div>
+        </div>
+        <div>
+          <div class="results-header">Chosen Skills</div>
+          <ul id="chosenList" class="skill-list"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ----- CONFIGURABLE PARTS -----
+    const APTITUDE_FACTORS = {
+      A: 1.0,
+      B: 0.9,
+      C: 0.8,
+      D: 0.7
+    };
+
+    const APTITUDE_TYPES = new Set(["Gold", "Yellow", "Blue", "Red"]);
+
+    // ----- DOM ELEMENTS -----
+    const skillsBody = document.getElementById("skillsBody");
+    const addRowBtn = document.getElementById("addRowBtn");
+    const clearRowsBtn = document.getElementById("clearRowsBtn");
+    const optimizeBtn = document.getElementById("optimizeBtn");
+    const budgetInput = document.getElementById("budgetInput");
+    const errorBox = document.getElementById("errorBox");
+
+    const resultsSection = document.getElementById("resultsSection");
+    const statRating = document.getElementById("statRating");
+    const statSP = document.getElementById("statSP");
+    const statCount = document.getElementById("statCount");
+    const statEfficiency = document.getElementById("statEfficiency");
+    const chosenList = document.getElementById("chosenList");
+
+    let rowCounter = 0;
+
+    // ----- HELPERS -----
+    function createOption(value, label) {
+      const opt = document.createElement("option");
+      opt.value = value;
+      opt.textContent = label;
+      return opt;
+    }
+
+    function recalcRowEffectiveRating(tr) {
+      const typeSel = tr.querySelector(".skill-type");
+      const ratingInput = tr.querySelector(".skill-rating");
+      const aptitudeSel = tr.querySelector(".skill-aptitude");
+      const effCell = tr.querySelector(".skill-effective");
+
+      let baseRating = parseFloat(ratingInput.value);
+      if (isNaN(baseRating) || baseRating < 0) baseRating = 0;
+
+      let effective = baseRating;
+
+      const typeVal = typeSel.value;
+      if (APTITUDE_TYPES.has(typeVal)) {
+        const apt = aptitudeSel.value || "A";
+        const factor = APTITUDE_FACTORS[apt] || 1.0;
+        effective = baseRating * factor;
+        aptitudeSel.disabled = false;
+      } else {
+        aptitudeSel.disabled = true;
+        aptitudeSel.value = "";
+      }
+
+      effCell.textContent = effective.toFixed(2);
+    }
+
+    function addSkillRow(defaults = {}) {
+      const tr = document.createElement("tr");
+      const id = rowCounter++;
+      tr.dataset.rowId = id;
+
+      tr.innerHTML = `
+        <td>
+          <input type="text" class="skill-name" placeholder="Skill ${id + 1}" value="${defaults.name || ""}">
+        </td>
+        <td>
+          <select class="skill-type">
+            <option value="Inherit">Inherit</option>
+            <option value="Gold">Gold</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Blue">Blue</option>
+            <option value="Red">Red</option>
+            <option value="Green">Green</option>
+            <option value="Purple">Purple</option>
+          </select>
+        </td>
+        <td>
+          <input type="number" min="0" step="1" class="skill-cost" value="${defaults.cost ?? 0}">
+        </td>
+        <td>
+          <input type="number" min="0" step="1" class="skill-rating" value="${defaults.rating ?? 0}">
+        </td>
+        <td>
+          <select class="skill-aptitude">
+            <option value="">(none)</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+          </select>
+        </td>
+        <td class="skill-effective">0.00</td>
+        <td style="text-align:center;">
+          <input type="checkbox" class="skill-include" checked>
+        </td>
+        <td>
+          <button type="button" class="btn-danger btn-sm delete-row">✕</button>
+        </td>
+      `;
+
+      const typeSel = tr.querySelector(".skill-type");
+      const ratingInput = tr.querySelector(".skill-rating");
+      const aptitudeSel = tr.querySelector(".skill-aptitude");
+      const costInput = tr.querySelector(".skill-cost");
+
+      // Apply defaults if provided
+      if (defaults.type) typeSel.value = defaults.type;
+      if (defaults.aptitude) aptitudeSel.value = defaults.aptitude;
+
+      // Wire events
+      typeSel.addEventListener("change", () => recalcRowEffectiveRating(tr));
+      ratingInput.addEventListener("input", () => recalcRowEffectiveRating(tr));
+      aptitudeSel.addEventListener("change", () => recalcRowEffectiveRating(tr));
+      costInput.addEventListener("input", () => {
+        // cost validity; no extra logic yet
+      });
+
+      tr.querySelector(".delete-row").addEventListener("click", () => {
+        tr.remove();
+      });
+
+      skillsBody.appendChild(tr);
+      recalcRowEffectiveRating(tr);
+    }
+
+    function clearSkills() {
+      skillsBody.innerHTML = "";
+      resultsSection.style.display = "none";
+      errorBox.style.display = "none";
+    }
+
+    // Core optimization: 0/1 knapsack
+    function optimize() {
+      errorBox.style.display = "none";
+      const budgetRaw = parseInt(budgetInput.value, 10);
+      const budget = isNaN(budgetRaw) || budgetRaw < 0 ? 0 : budgetRaw;
+
+      if (budget <= 0) {
+        errorBox.textContent = "Please enter a positive SP budget.";
+        errorBox.style.display = "block";
+        resultsSection.style.display = "none";
+        return;
+      }
+
+      const rows = Array.from(skillsBody.querySelectorAll("tr"))
+        .filter(tr => tr.querySelector(".skill-include")?.checked);
+
+      if (rows.length === 0) {
+        errorBox.textContent = "Please add at least one skill (and ensure it's marked as 'Buy?').";
+        errorBox.style.display = "block";
+        resultsSection.style.display = "none";
+        return;
+      }
+
+      const skills = [];
+      for (const tr of rows) {
+        const name = tr.querySelector(".skill-name").value || "(unnamed)";
+        const type = tr.querySelector(".skill-type").value;
+        let cost = parseInt(tr.querySelector(".skill-cost").value, 10);
+        if (isNaN(cost) || cost < 0) cost = 0;
+
+        let baseRating = parseFloat(tr.querySelector(".skill-rating").value);
+        if (isNaN(baseRating) || baseRating < 0) baseRating = 0;
+
+        const aptitude = tr.querySelector(".skill-aptitude").value;
+        let factor = 1.0;
+        if (APTITUDE_TYPES.has(type) && aptitude && APTITUDE_FACTORS[aptitude] != null) {
+          factor = APTITUDE_FACTORS[aptitude];
+        }
+
+        const effectiveRating = baseRating * factor;
+
+        skills.push({
+          name,
+          type,
+          cost,
+          baseRating,
+          aptitude,
+          effectiveRating
+        });
+      }
+
+      const n = skills.length;
+
+      // Safety guard for huge DP tables
+      if (n * budget > 2_000_000) {
+        errorBox.textContent =
+          "This budget and skill count would be too heavy for the browser. " +
+          "Try lowering the SP budget or removing some skills.";
+        errorBox.style.display = "block";
+        resultsSection.style.display = "none";
+        return;
+      }
+
+      const dp = Array.from({ length: n + 1 }, () =>
+        new Float64Array(budget + 1)
+      );
+      const take = Array.from({ length: n + 1 }, () =>
+        new Uint8Array(budget + 1)
+      );
+
+      for (let i = 1; i <= n; i++) {
+        const { cost, effectiveRating } = skills[i - 1];
+        for (let sp = 0; sp <= budget; sp++) {
+          let best = dp[i - 1][sp]; // not take
+          let chosen = 0;
+
+          if (cost <= sp) {
+            const candidate = dp[i - 1][sp - cost] + effectiveRating;
+            if (candidate > best) {
+              best = candidate;
+              chosen = 1;
+            }
+          }
+
+          dp[i][sp] = best;
+          take[i][sp] = chosen;
+        }
+      }
+
+      // Reconstruct solution
+      let remainingSP = budget;
+      const chosenIndices = [];
+      for (let i = n; i >= 1; i--) {
+        if (take[i][remainingSP] === 1) {
+          chosenIndices.push(i - 1);
+          remainingSP -= skills[i - 1].cost;
+        }
+      }
+      chosenIndices.reverse();
+
+      let usedSP = 0;
+      let totalRating = 0;
+      chosenList.innerHTML = "";
+
+      for (const idx of chosenIndices) {
+        const s = skills[idx];
+        usedSP += s.cost;
+        totalRating += s.effectiveRating;
+
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <span class="highlight">${s.name}</span>
+          <span class="pill-small type-${s.type}">${s.type}</span>
+          <span class="pill-small">Cost: ${s.cost}</span>
+          <span class="pill-small">Rating: ${s.effectiveRating.toFixed(2)}</span>
+          ${
+            s.aptitude
+              ? `<span class="pill-small">Apt: ${s.aptitude}</span>`
+              : ""
+          }
+        `;
+        chosenList.appendChild(li);
+      }
+
+      statRating.textContent = totalRating.toFixed(2);
+      statSP.textContent = `${usedSP} / ${budget}`;
+      statCount.textContent = chosenIndices.length.toString();
+      statEfficiency.textContent =
+        usedSP > 0 ? (totalRating / usedSP).toFixed(4) : "0";
+
+      resultsSection.style.display = "grid";
+    }
+
+    // ----- EVENT WIRING -----
+    addRowBtn.addEventListener("click", () => addSkillRow());
+    clearRowsBtn.addEventListener("click", clearSkills);
+    optimizeBtn.addEventListener("click", optimize);
+
+    // Prepopulate a few example rows so the page isn't empty
+    addSkillRow({
+      name: "Sample Gold A",
+      type: "Gold",
+      cost: 120,
+      rating: 200,
+      aptitude: "A"
+    });
+    addSkillRow({
+      name: "Sample Blue B",
+      type: "Blue",
+      cost: 80,
+      rating: 140,
+      aptitude: "B"
+    });
+    addSkillRow({
+      name: "Sample Red C",
+      type: "Red",
+      cost: 60,
+      rating: 110,
+      aptitude: "C"
+    });
+    addSkillRow({
+      name: "Sample Inherit",
+      type: "Inherit",
+      cost: 50,
+      rating: 90
+    });
+  </script>
+</body>
+</html>
