@@ -1,7 +1,7 @@
 {
   "blocks": [
     {
-      "aptitude": "Late",
+      "aptitude": "Late Surger",
       "baseValue": 239,
       "baseRatings": {
         "S-A": 239,
@@ -110,7 +110,7 @@
       ]
     },
     {
-      "aptitude": "Pace",
+      "aptitude": "Pace Chaser",
       "baseValue": 239,
       "baseRatings": {
         "S-A": 239,
@@ -132,7 +132,7 @@
       ]
     },
     {
-      "aptitude": "End",
+      "aptitude": "End Closer",
       "baseValue": 239,
       "baseRatings": {
         "S-A": 239,
@@ -228,7 +228,7 @@
       ]
     },
     {
-      "aptitude": "Front",
+      "aptitude": "Front Runner",
       "baseValue": 239,
       "baseRatings": {
         "S-A": 239,
