@@ -126,27 +126,36 @@
           <div class="budget-row">
             <label for="budgetInput">SP Budget</label>
             <input type="number" id="budgetInput" min="0" step="1" value="1000" />
-            <button id="optimizeBtn" class="btn-primary" type="button">🧮 Optimize</button>
-            <button id="resetSkillsBtn" class="btn-outline" type="button">🔄 Reset Skills</button>
-            <button id="resetAllBtn" class="btn-danger" type="button">🗑 Reset All</button>
+            <button id="optimizeBtn" class="btn-primary" type="button">Optimize Build</button>
+            <button id="resetSkillsBtn" class="btn-outline" type="button">Reset Skills</button>
+            <button id="resetAllBtn" class="btn-danger" type="button">Reset All</button>
           </div>
         </div>
       </div>
 
       <!-- Tabs -->
       <div class="tabs" id="tabsRow"></div>
+	  
+	  <!-- Search row -->
+	  <div class="search-row">
+		  <label for="searchInput">Search Skills</label>
+		  <input
+			type="text"
+			id="searchInput"
+			placeholder="Type Skill Name"
+		  />
+		  <button id="clearSearchBtn" type="button" class="btn-mini">
+			✕
+		  </button>
+		</div>
 
       <!-- Skills table -->
       <div id="skillsContainer">
         <table>
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Variant</th>
-              <th>SP Cost</th>
-              <th>Aptitude</th>
-              <th>Grade Used</th>
-              <th>Rating</th>
+              <th>Base Skill</th>
+              <th>Gold Skill</th>
             </tr>
           </thead>
           <tbody id="skillsBody"></tbody>
@@ -194,7 +203,11 @@
       <div id="errorBox" class="error" style="display:none;"></div>
     </div>
   </div>
-
+  <button id="scrollTopBtn" class="scroll-top-btn" type="button">
+    ▲ Top
+  </button>
+  
   <script src="app.js"></script>
+
 </body>
 </html>

@@ -249,7 +249,9 @@ tbody tr:nth-child(even) {
   border: 1px solid rgba(148, 163, 184, 0.6);
   color: #e5e7eb;
 }
-
+.variant-pill {
+  flex-shrink: 0;
+}
 .variant-Gold {
   background: #ffe9a8;
   color: #5a4b00;
@@ -261,6 +263,20 @@ tbody tr:nth-child(even) {
 .variant-Normal {
   background: #444;
   color: #ddd;
+}
+
+.skill-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.skill-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .results {
@@ -317,6 +333,143 @@ tbody tr:nth-child(even) {
 
 .skill-list li {
   margin-bottom: 0.25rem;
+}
+
+.skill-card {
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.skill-row-top,
+.skill-row-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.skill-name {
+  font-size: 14px;
+  font-weight: 500;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-right: 8px;
+}
+
+.skill-cost {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.sp-cost-input {
+  width: 48px;
+  padding: 2px 4px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.skill-rating {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.variant-pill {
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+
+.search-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 4px;
+}
+
+.search-row label {
+  font-size: 13px;
+  opacity: 0.8;
+  white-space: nowrap;
+}
+
+#searchInput {
+  flex: 1;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background: #181818;
+  color: #eee;
+  font-size: 13px;
+}
+
+#searchInput:focus {
+  outline: none;
+  border-color: #7ecbff;
+  box-shadow: 0 0 0 1px rgba(126, 203, 255, 0.3);
+}
+
+.btn-mini {
+  padding: 3px 7px;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background: #262626;
+  color: #ddd;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn-mini:hover {
+  background: #333;
+}
+
+.scroll-top-btn {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid #555;
+  background: #202020;
+  color: #eee;
+  font-size: 12px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: translateY(8px);
+  z-index: 999;
+}
+
+.scroll-top-btn.visible {
+  opacity: 0.9;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.scroll-top-btn:hover {
+  background: #2f2f2f;
+}
+
+.sp-cost-input {
+  width: 40px !important; 
+  padding: 2px 4px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.skill-cost {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
 }
 
 .pill-small {

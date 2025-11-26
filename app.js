@@ -35,6 +35,7 @@ const GRADE_KEYS = ["S-A", "B-C", "D-E-F", "G"];
 let ALL_SKILLS = [];
 let activeType = "Yellow";
 let GROUP_COUNTER = 0;
+let currentSearch = "";
 
 // ---------------- DOM ----------------
 const tabsRow = document.getElementById("tabsRow");
@@ -52,6 +53,10 @@ const statPurple = document.getElementById("statPurple");
 const chosenList = document.getElementById("chosenList");
 const resetSkillsBtn = document.getElementById("resetSkillsBtn");
 const resetAllBtn = document.getElementById("resetAllBtn");
+const searchInput    = document.getElementById("searchInput");
+const clearSearchBtn = document.getElementById("clearSearchBtn");
+const scrollTopBtn = document.getElementById("scrollTopBtn");
+
 
 // ---------------- HELPERS ----------------
 function getAptitudeGrades() {
@@ -63,6 +68,67 @@ function getAptitudeGrades() {
   }
   return map;
 }
+
+function renderSkillCell(skill, idx, gradeMap) {
+  if (!skill) return `<td class="skill-cell empty"></td>`;
+
+  const rawRating = computeSkillRating(skill, gradeMap);
+  const displayRating = skill.type === "Purple" ? -rawRating : rawRating;
+
+  // SP cost selector
+  let costHtml;
+  if (skill.type === "Purple") {
+    costHtml = `<span class="skill-cost">SP: 0</span>`;
+  } else {
+    const val = skill.spCost != null ? skill.spCost : "";
+    costHtml = `
+      <label class="skill-cost">
+        SP:
+        <input type="number"
+               min="0"
+               step="1"
+               class="sp-cost-input"
+               data-skill-index="${idx}"
+               value="${val}">
+      </label>
+    `;
+  }
+
+  // Purple toggle handling
+  let nameHtml;
+  if (skill.type === "Purple") {
+    const checked = skill.use ? "checked" : "";
+    nameHtml = `
+      <label class="skill-name">
+        <input type="checkbox"
+               class="purple-toggle"
+               data-skill-index="${idx}"
+               ${checked}>
+        ${skill.name}
+      </label>
+    `;
+  } else {
+    nameHtml = `<span class="skill-name">${skill.name}</span>`;
+  }
+
+  return `
+    <td class="skill-cell">
+      <div class="skill-card">
+
+        <div class="skill-row-top">
+          ${nameHtml}
+          ${costHtml}
+        </div>
+
+        <div class="skill-row-bottom">
+          <span class="skill-rating">Rating: ${displayRating.toFixed(2)}</span>
+        </div>
+
+      </div>
+    </td>
+  `;
+}
+    //<span class="variant-pill variant-${skill.variant}">${skill.variant}</span> looks ugly i remove
 
 // ratingBase from JSON "value"-style fields
 function computeSkillRating(skill, gradeMap) {
@@ -97,66 +163,63 @@ function createTabs() {
 
 function renderSkillsTable() {
   const gradeMap = getAptitudeGrades();
-  const rows = ALL_SKILLS.filter(s => s.type === activeType);
+  const query = (typeof currentSearch === "string" ? currentSearch : "").trim().toLowerCase();
+
+  // All skills for the active type
+  const skillsOfType = ALL_SKILLS.filter(s => s.type === activeType);
+
+  // Group by groupId
+  const groupsMap = new Map();
+  for (const s of skillsOfType) {
+    const gid = s.groupId != null ? s.groupId : s.name + ":" + s.variant;
+    if (!groupsMap.has(gid)) groupsMap.set(gid, []);
+    groupsMap.get(gid).push(s);
+  }
+
+  // Convert to array of groups, apply search filter
+  const groupList = [];
+  for (const group of groupsMap.values()) {
+    if (!query) {
+      groupList.push(group);
+    } else {
+      const matches = group.some(s => {
+        const haystack = (
+          s.name + " " +
+          (s.aptitude || "") + " " +
+          (s.variant || "")
+        ).toLowerCase();
+        return haystack.includes(query);
+      });
+      if (matches) groupList.push(group);
+    }
+  }
+
   skillsBody.innerHTML = "";
 
-  if (rows.length === 0) {
+  if (groupList.length === 0) {
     skillsEmpty.style.display = "block";
     return;
   }
   skillsEmpty.style.display = "none";
 
-  for (const s of rows) {
+  for (const group of groupList) {
+    // Prefer "Normal" as left, "Gold" as right
+    let normal = group.find(s => s.variant === "Base") || group[0];
+    let gold   = group.find(s => s.variant === "Gold");
+
+    // Indices for SP / purple toggles
+    const idxNormal = ALL_SKILLS.indexOf(normal);
+    const idxGold   = gold ? ALL_SKILLS.indexOf(gold) : -1;
+
     const tr = document.createElement("tr");
-    const rawRating = computeSkillRating(s, gradeMap);
-    const displayRating = s.type === "Purple" ? -rawRating : rawRating; // show minus for purple
-    const gradeUsed = s.aptitude ? gradeMap[s.aptitude] : "-";
-    const idx = ALL_SKILLS.indexOf(s);
-
-    // SP cost cell (Purple always 0 and not editable)
-    let costCellHtml;
-    if (s.type === "Purple") {
-      costCellHtml = "0";
-    } else {
-      const val = s.spCost != null ? s.spCost : "";
-      costCellHtml = `
-        <input type="number"
-               min="0"
-               step="1"
-               class="sp-cost-input"
-               data-skill-index="${idx}"
-               value="${val}">
-      `;
-    }
-
-    // Name cell (Purple adds checkbox)
-    let nameCellHtml;
-    if (s.type === "Purple") {
-      const checked = s.use ? "checked" : "";
-      nameCellHtml = `
-        <label>
-          <input type="checkbox"
-                 class="purple-toggle"
-                 data-skill-index="${idx}"
-                 ${checked}>
-          ${s.name}
-        </label>
-      `;
-    } else {
-      nameCellHtml = s.name;
-    }
-
     tr.innerHTML = `
-      <td>${nameCellHtml}</td>
-      <td><span class="variant-pill variant-${s.variant}">${s.variant}</span></td>
-      <td>${costCellHtml}</td>
-      <td>${s.aptitude || "-"}</td>
-      <td>${gradeUsed}</td>
-      <td>${displayRating.toFixed(2)}</td>
+      ${renderSkillCell(normal, idxNormal, gradeMap)}
+      ${renderSkillCell(gold, idxGold, gradeMap)}
     `;
     skillsBody.appendChild(tr);
   }
 }
+
 
 // Sync SP cost inputs into ALL_SKILLS
 function syncSpCostsFromDom() {
@@ -187,7 +250,7 @@ async function loadSkillsForType(type) {
       return;
     }
     const data = await res.json();
-    parseBlocksJson(data, type);
+    parseAnySkillJson(data, type);
   } catch (e) {
     console.error(`[Skills] Error loading JSON for type ${type}:`, e);
     errorBox.textContent = `Error loading data for ${type}: ${e.message}`;
@@ -266,7 +329,7 @@ function parseBlocksJson(data, type) {
         ALL_SKILLS.push({
           type,
           name: baseName,
-          variant: "Base",  // displayed pill text; CSS .variant-Normal
+          variant: "Base",  // displayed pill text; CSS .variant-Base
           ratingBase: baseProfile.ratingBase,
           aptitude,
           grades: baseProfile.grades,
@@ -299,6 +362,214 @@ function toNumberOrNull(v) {
   const num = Number(v);
   return Number.isNaN(num) ? null : num;
 }
+
+function parseAnySkillJson(data, type) {
+  if (!data) {
+    console.warn(`[Skills] Empty JSON for type ${type}`);
+    return;
+  }
+
+  // New format: { blocks: [...] }
+  if (Array.isArray(data.blocks)) {
+    parseBlocksJson(data, type);
+    return;
+  }
+
+  // Yellow-style grouped format: { groups: [...] }
+  if (Array.isArray(data.groups)) {
+    parseLegacyGroupsJson(data.groups, type);
+    return;
+  }
+
+  // Old flat array format: [ { base, upgraded? }, ... ]
+  if (Array.isArray(data)) {
+    parseLegacyFlatJson(data, type);
+    return;
+  }
+
+  console.warn(`[Skills] Unknown JSON shape for type ${type}`);
+}
+
+/**
+ * Legacy "flat array" format:
+ * [
+ *   { base: { name, value, aptitude?, ratings? },
+ *     upgraded?: { name, value, aptitude?, ratings? } },
+ *   ...
+ * ]
+ * Used by: green.json, inherit.json, purple.json
+ */
+function parseLegacyFlatJson(arr, type) {
+  for (const item of arr) {
+    if (!item || !item.base) continue;
+
+    const base = item.base;
+    const upg  = item.upgraded || null;
+
+    const aptitude =
+      base.aptitude ||
+      (upg && upg.aptitude) ||
+      "";
+
+    const baseRatings = base.ratings || {};
+    const baseProfile = {
+      ratingBase: Number(base.value) || 0,
+      grades: {
+        "S-A": toNumberOrNull(baseRatings["S-A"]),
+        "B-C": toNumberOrNull(baseRatings["B-C"]),
+        "D-E-F": toNumberOrNull(baseRatings["D-E-F"]),
+        "G":    toNumberOrNull(baseRatings["G"])
+      }
+    };
+
+    let goldProfile = null;
+    if (upg) {
+      const goldRatings = upg.ratings || {};
+      goldProfile = {
+        ratingBase: Number(upg.value) || 0,
+        grades: {
+          "S-A": toNumberOrNull(goldRatings["S-A"]),
+          "B-C": toNumberOrNull(goldRatings["B-C"]),
+          "D-E-F": toNumberOrNull(goldRatings["D-E-F"]),
+          "G":    toNumberOrNull(goldRatings["G"])
+        }
+      };
+    }
+
+    const groupId = GROUP_COUNTER++;
+
+    // Base / normal skill
+    if (base.name) {
+      ALL_SKILLS.push({
+        type,
+        name: base.name,
+        variant: "Normal",
+        ratingBase: baseProfile.ratingBase,
+        aptitude,
+        grades: baseProfile.grades,
+        spCost: null,
+        groupId,
+        use: false
+      });
+    }
+
+    // Gold / upgraded skill (if present)
+    if (upg && upg.name && goldProfile) {
+      ALL_SKILLS.push({
+        type,
+        name: upg.name,
+        variant: "Gold",
+        ratingBase: goldProfile.ratingBase,
+        aptitude,
+        grades: goldProfile.grades,
+        spCost: null,
+        groupId,
+        use: false
+      });
+    }
+  }
+}
+
+/**
+ * Legacy "groups" format:
+ *
+ * {
+ *   "groups": [
+ *     {
+ *       "aptitude": "Mile" or "",
+ *       "base": {
+ *         "value": 239,
+ *         "ratings": { ... },
+ *         "skills": ["Base1", "Base2", ...]
+ *       },
+ *       "upgraded": {
+ *         "value": 367,
+ *         "ratings": { ... },
+ *         "skills": ["Gold1", "Gold2", ...]
+ *       }
+ *     },
+ *     ...
+ *   ]
+ * }
+ *
+ * Used by: yellow.json
+ */
+function parseLegacyGroupsJson(groups, type) {
+  for (const block of groups) {
+    if (!block || !block.base) continue;
+
+    const aptitude = block.aptitude || "";
+
+    const baseData = block.base || {};
+    const baseRatings = baseData.ratings || {};
+    const baseProfile = {
+      ratingBase: Number(baseData.value) || 0,
+      grades: {
+        "S-A": toNumberOrNull(baseRatings["S-A"]),
+        "B-C": toNumberOrNull(baseRatings["B-C"]),
+        "D-E-F": toNumberOrNull(baseRatings["D-E-F"]),
+        "G":    toNumberOrNull(baseRatings["G"])
+      }
+    };
+
+    const upgraded = block.upgraded || null;
+    let goldProfile = null;
+    if (upgraded) {
+      const goldRatings = upgraded.ratings || {};
+      goldProfile = {
+        ratingBase: Number(upgraded.value) || 0,
+        grades: {
+          "S-A": toNumberOrNull(goldRatings["S-A"]),
+          "B-C": toNumberOrNull(goldRatings["B-C"]),
+          "D-E-F": toNumberOrNull(goldRatings["D-E-F"]),
+          "G":    toNumberOrNull(goldRatings["G"])
+        }
+      };
+    }
+
+    const baseSkills = Array.isArray(baseData.skills) ? baseData.skills : [];
+    const goldSkills = upgraded && Array.isArray(upgraded.skills)
+      ? upgraded.skills
+      : [];
+
+    const maxLen = Math.max(baseSkills.length, goldSkills.length);
+
+    for (let i = 0; i < maxLen; i++) {
+      const baseName = baseSkills[i] || null;
+      const goldName = goldSkills[i] || null;
+      const groupId = GROUP_COUNTER++;
+
+      if (baseName) {
+        ALL_SKILLS.push({
+          type,
+          name: baseName,
+          variant: "Normal",
+          ratingBase: baseProfile.ratingBase,
+          aptitude,
+          grades: baseProfile.grades,
+          spCost: null,
+          groupId,
+          use: false
+        });
+      }
+
+      if (goldName && goldProfile) {
+        ALL_SKILLS.push({
+          type,
+          name: goldName,
+          variant: "Gold",
+          ratingBase: goldProfile.ratingBase,
+          aptitude,
+          grades: goldProfile.grades,
+          spCost: null,
+          groupId,
+          use: false
+        });
+      }
+    }
+  }
+}
+
 
 // ---------------- OPTIMIZER (multiple-choice knapsack) ----------------
 function optimize() {
@@ -426,6 +697,7 @@ function optimize() {
   statPurple.textContent = purplePenalty.toFixed(2);
 
   resultsSection.style.display = "grid";
+  resultsSection.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 // ---------------- RESET LOGIC ----------------
@@ -486,6 +758,43 @@ function wireAptitudeListeners() {
 optimizeBtn.addEventListener("click", optimize);
 resetSkillsBtn.addEventListener("click", resetSkills);
 resetAllBtn.addEventListener("click", resetAll);
+
+if (searchInput) {
+  searchInput.addEventListener("input", () => {
+    currentSearch = searchInput.value;
+    // preserve any SP edits before re-render
+    syncSpCostsFromDom();
+    renderSkillsTable();
+  });
+}
+
+if (clearSearchBtn) {
+  clearSearchBtn.addEventListener("click", () => {
+    if (!currentSearch) return;
+    currentSearch = "";
+    searchInput.value = "";
+    syncSpCostsFromDom();
+    renderSkillsTable();
+  });
+}
+
+// Show/hide scroll-to-top button
+if (scrollTopBtn) {
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      scrollTopBtn.classList.add("visible");
+    } else {
+      scrollTopBtn.classList.remove("visible");
+    }
+  });
+
+  scrollTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+wireAptitudeListeners();
+
 wireAptitudeListeners();
 
 // Purple toggle handling (event delegation)

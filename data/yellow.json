@@ -1,26 +1,423 @@
 {
   "blocks": [
     {
-      "aptitude": "Mile",
-      "baseValue": 239,
-      "baseRatings": { "S-A": 239, "B-C": 195, "D-E-F": 174, "G": 152 },
-      "goldValue": 367,
-      "goldRatings": { "S-A": 367, "B-C": 301, "D-E-F": 267, "G": 234 },
+      "aptitude": "",
+      "baseValue": 129,
+      "baseRatings": {
+        "S-A": null,
+        "B-C": null,
+        "D-E-F": null,
+        "G": null
+      },
+      "goldValue": 334,
+      "goldRatings": {
+        "S-A": null,
+        "B-C": null,
+        "D-E-F": null,
+        "G": null
+      },
       "pairs": [
-        ["Unyielding Spirit", "Big-Sisterly"]
+        ["Prudent Positioning", "Center Stage"],
+        ["Go with the Flow", "Lane Legerdemain"],
+        ["Risky Business", "Nothing Ventured"]
+      ]
+    },
+    {
+      "aptitude": "",
+      "baseValue": 129,
+      "baseRatings": {
+        "S-A": null,
+        "B-C": null,
+        "D-E-F": null,
+        "G": null
+      },
+      "goldValue": 394,
+      "goldRatings": {
+        "S-A": null,
+        "B-C": null,
+        "D-E-F": null,
+        "G": null
+      },
+      "pairs": [
+        ["Focus", "Concentration"]
+      ]
+    },
+    {
+      "aptitude": "",
+      "baseValue": 174,
+      "baseRatings": {
+        "S-A": null,
+        "B-C": null,
+        "D-E-F": null,
+        "G": null
+      },
+      "goldValue": 394,
+      "goldRatings": {
+        "S-A": null,
+        "B-C": null,
+        "D-E-F": null,
+        "G": null
+      },
+      "pairs": [
+        ["Nimble Navigator", "No Stopping Me!"]
       ]
     },
     {
       "aptitude": "",
       "baseValue": 217,
-      "baseRatings": { "S-A": null, "B-C": null, "D-E-F": null, "G": null },
+      "baseRatings": {
+        "S-A": null,
+        "B-C": null,
+        "D-E-F": null,
+        "G": null
+      },
       "goldValue": 508,
-      "goldRatings": { "S-A": null, "B-C": null, "D-E-F": null, "G": null },
+      "goldRatings": {
+        "S-A": null,
+        "B-C": null,
+        "D-E-F": null,
+        "G": null
+      },
       "pairs": [
-        ["Corner Adept", "Professor of Curvature"],
+        ["Corner Adept ○", "Professor of Curvature"],
         ["Straightaway Adept", "Beeline Burst"],
         ["Ramp Up", "It's On!"],
-        ["Homestretch Haste", "In Body and Mind"]
+        ["Homestretch Haste", "In Body and Mind"],
+        ["Uma Stan", "Superstan"],
+        ["Tail Held High", "Tail Nine"],
+        ["Slipstream", "In the Right Place!"],
+        ["Playtime's Over!", "See Ya Later!"],
+        ["Corner Acceleration ○", "Corner Connoisseur"],
+        ["Straightaway Acceleration", "Rushing Gale!"],
+        ["Highlander", "Ultimate Hill Climber"],
+        ["Groundwork", "Unshakable Stance"],
+        ["Downhill Speedster", "Supreme Downhiller"]
+      ]
+    },
+    {
+      "aptitude": "",
+      "baseValue": 263,
+      "baseRatings": {
+        "S-A": null,
+        "B-C": null,
+        "D-E-F": null,
+        "G": null
+      },
+      "baseValue": 633,
+      "baseRatings": {
+        "S-A": null,
+        "B-C": null,
+        "D-E-F": null,
+        "G": null
+      },
+      "pairs": [
+        ["Glittering Star", "Radiant Star"]
+      ]
+    },
+    {
+      "aptitude": "Dirt",
+      "baseValue": 174,
+      "baseRatings": {
+        "S-A": null,
+        "B-C": null,
+        "D-E-F": null,
+        "G": null
+      },
+      "goldValue": 394,
+      "goldRatings": {
+        "S-A": null,
+        "B-C": null,
+        "D-E-F": null,
+        "G": null
+      },
+      "pairs": [
+        ["Forward, March!", "Lead the Charge!"]
+      ]
+    },
+    {
+      "aptitude": "Dirt",
+      "baseValue": 217,
+      "baseRatings": {
+        "S-A": null,
+        "B-C": null,
+        "D-E-F": null,
+        "G": null
+      },
+      "goldValue": 508,
+      "goldRatings": {
+        "S-A": null,
+        "B-C": null,
+        "D-E-F": null,
+        "G": null
+      },
+      "pairs": [
+        ["Top Pick", "Trending in the Charts!"]
+      ]
+    },
+    {
+      "aptitude": "End Closer",
+      "baseValue": 94,
+      "baseRatings": {
+        "S-A": 94,
+        "B-C": 77,
+        "D-E-F": 68,
+        "G": 60
+      },
+      "goldValue": 367,
+      "goldRatings": {
+        "S-A": 367,
+        "B-C": 301,
+        "D-E-F": 267,
+        "G": 234
+      },
+      "pairs": [
+        ["I Can See Right Through You", "The Coast Is Clear!"],
+        ["Strategist", "Crusader"]
+      ]
+    },
+    {
+      "aptitude": "End Closer",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "goldValue": 559,
+      "goldRatings": {
+        "S-A": 559,
+        "B-C": 457,
+        "D-E-F": 406,
+        "G": 356
+      },
+      "pairs": [
+        ["Masterful Gambit", "Sturm und Drang"],
+        ["End Closer Straightaways ○", null],
+        ["End Closer Corners ○", null],
+        ["Straightaway Spurt", "Encroaching Shadow"],
+        ["Early Start", "Daring Strike"]
+      ]
+    },
+    {
+      "aptitude": "Front",
+      "baseValue": 143,
+      "baseRatings": {
+        "S-A": 143,
+        "B-C": 116,
+        "D-E-F": 103,
+        "G": 90
+      },
+      "goldValue": 367,
+      "goldRatings": {
+        "S-A": 367,
+        "B-C": 301,
+        "D-E-F": 267,
+        "G": 234
+      },
+      "pairs": [
+        ["Dodging Danger", "Sixth Sense"]
+      ]
+    },
+    {
+      "aptitude": "Front",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "pairs": [
+        ["Fast-Paced", null],
+        ["Front Runner Straightaways ○", null],
+        ["Front Runner Corners ○", null],
+        ["Leader's Pride", null],
+        ["Early Lead", null],
+        ["Final Push", null],
+        ["Second Wind", null]
+      ]
+    },
+    {
+      "aptitude": "Late Surger",
+      "baseValue": 94,
+      "baseRatings": {
+        "S-A": 94,
+        "B-C": 77,
+        "D-E-F": 68,
+        "G": 60
+      },
+      "pairs": [
+        ["Studious", null]
+      ]
+    },
+    {
+      "aptitude": "Late Surger",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "pairs": [
+        ["Position Pilfer", null],
+        ["Outer Swell", null],
+        ["Late Surger Straightaways ○", null],
+        ["Late Surger Corners ○", null],
+        ["1,500,000 CC", null],
+        ["Slick Surge", null],
+        ["Fighter", null],
+        ["Fearless", null],
+        ["Full Throttle", null]
+      ]
+    },
+    {
+      "aptitude": "Long",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "pairs": [
+        ["Inside Scoop", null],
+        ["Long Straightaways ○", null],
+        ["Long Corners ○", null],
+        ["Keeping the Lead", null],
+        ["Pressure", null],
+        ["Feature Act", null]
+      ]
+    },
+    {
+      "aptitude": "Medium",
+      "baseValue": 142,
+      "baseRatings": {
+        "S-A": 142,
+        "B-C": 116,
+        "D-E-F": 103,
+        "G": 90
+      },
+      "pairs": [
+        ["Hawkeye", null]
+      ]
+    },
+    {
+      "aptitude": "Medium",
+      "baseValue": 191,
+      "baseRatings": {
+        "S-A": 191,
+        "B-C": 157,
+        "D-E-F": 139,
+        "G": 122
+      },
+      "pairs": [
+        ["Thunderbolt Step", null]
+      ]
+    },
+    {
+      "aptitude": "Medium",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "pairs": [
+        ["Up-Tempo", null],
+        ["Steadfast", null],
+        ["Medium Straightaways ○", null],
+        ["Medium Corners ○", null],
+        ["All I've Got", null],
+        ["Fighting Spirit", null],
+        ["Eager", null],
+        ["With All My Soul", null],
+        ["Take the Chance", null]
+      ]
+    },
+    {
+      "aptitude": "Mile",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "pairs": [
+        ["Productive Plan", null],
+        ["Mile Straightaways ○", null],
+        ["Mile Corners ○", null],
+        ["Shifting Gears", null],
+        ["Unyielding Spirit", null],
+        ["Updrafters", null],
+        ["Acceleration", null],
+        ["Pumped", null]
+      ]
+    },
+    {
+      "aptitude": "Pace Chaser",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "pairs": [
+        ["Prepared to Pass", null],
+        ["Pace Chaser Straightaways ○", null],
+        ["Pace Chaser Corners ○", null],
+        ["Head-On", null],
+        ["Shrewd Step", null],
+        ["Straight Descent", null],
+        ["Tactical Tweak", null]
+      ]
+    },
+    {
+      "aptitude": "Sprint",
+      "baseValue": 191,
+      "baseRatings": {
+        "S-A": 191,
+        "B-C": 157,
+        "D-E-F": 139,
+        "G": 122
+      },
+      "pairs": [
+        ["Meticulous Measures", null]
+      ]
+    },
+    {
+      "aptitude": "Sprint",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "pairs": [
+        ["Gap Closer", null],
+        ["Sprint Straightaways ○", null],
+        ["Sprint Corners ○", null],
+        ["Sprinting Gear", null],
+        ["Countermeasure", null],
+        ["Light as a Feather", null]
+      ]
+    },
+    {
+      "aptitude": "Sprint",
+      "baseValue": 288,
+      "baseRatings": {
+        "S-A": 288,
+        "B-C": 236,
+        "D-E-F": 210,
+        "G": 183
+      },
+      "pairs": [
+        ["Huge Lead", null]
       ]
     }
   ]

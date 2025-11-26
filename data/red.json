@@ -1,1 +1,18 @@
-[]
+{
+  "blocks": [
+    {
+      "aptitude": "",
+      "baseValue": 100,
+      "baseRatings": {
+        "S-A": null,
+        "B-C": null,
+        "D-E-F": null,
+        "G": null
+      },
+      "pairs": [
+        ["Test Skill 1", null],
+        ["Test Skill 2", null]
+      ]
+    }
+  ]
+}
