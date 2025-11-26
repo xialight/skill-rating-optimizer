@@ -7,37 +7,37 @@
   <style>
     :root {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color-scheme: dark light;
+      color-scheme: dark;
     }
 
     body {
       margin: 0;
       padding: 0;
-      background: #05060a;
-      color: #f7f7ff;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #020617 0, #020617 40%, #000 100%);
+      color: #e5e7eb;
       display: flex;
       justify-content: center;
-      min-height: 100vh;
     }
 
     .app {
-      max-width: 1100px;
       width: 100%;
+      max-width: 1200px;
       padding: 1.5rem;
       box-sizing: border-box;
     }
 
     .card {
-      background: radial-gradient(circle at top, #1b1f3b, #05060a 55%);
+      background: rgba(15, 23, 42, 0.95);
       border-radius: 1.25rem;
       padding: 1.5rem 1.75rem 2rem;
-      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.65);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.3);
     }
 
     h1 {
       margin-top: 0;
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       letter-spacing: 0.04em;
     }
 
@@ -47,79 +47,100 @@
       margin-bottom: 1rem;
     }
 
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1rem;
-    }
-
-    .badge {
-      font-size: 0.7rem;
-      border-radius: 999px;
-      padding: 0.15rem 0.6rem;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      opacity: 0.9;
-    }
-
-    .aptitude-info {
-      font-size: 0.75rem;
-      opacity: 0.9;
+    .top-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      gap: 1.5rem;
       margin-bottom: 1.2rem;
     }
 
-    .aptitude-info code {
-      background: rgba(0, 0, 0, 0.35);
-      padding: 0.08rem 0.25rem;
-      border-radius: 0.3rem;
+    .panel {
+      background: radial-gradient(circle at top left, #111827, #020617);
+      border-radius: 0.9rem;
+      padding: 0.9rem 1rem;
+      border: 1px solid rgba(55, 65, 81, 0.8);
     }
 
-    .controls {
+    .panel-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: 0.8;
+      margin-bottom: 0.35rem;
+    }
+
+    .apt-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.35rem 0.8rem;
+    }
+
+    .apt-row {
       display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.4rem;
+    }
+
+    .apt-label {
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+
+    select,
+    input[type="number"] {
+      background: rgba(15, 23, 42, 0.95);
+      color: #f9fafb;
+      border-radius: 0.55rem;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      padding: 0.25rem 0.55rem;
+      font-size: 0.82rem;
+      outline: none;
+      min-width: 4.5rem;
+    }
+
+    select:focus,
+    input[type="number"]:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.8);
+    }
+
+    .budget-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.6rem;
       flex-wrap: wrap;
-      gap: 1rem;
-      align-items: flex-end;
-      margin-bottom: 1rem;
     }
 
-    .form-group {
+    .budget-row label {
+      font-size: 0.85rem;
+    }
+
+    .toggle-row {
       display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-      min-width: 130px;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
     }
 
-    label {
+    .checkbox-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
       font-size: 0.8rem;
       opacity: 0.9;
     }
 
-    input[type="number"],
-    input[type="text"],
-    select {
-      background: rgba(4, 10, 25, 0.85);
-      color: #f7f7ff;
-      border-radius: 0.6rem;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      padding: 0.4rem 0.55rem;
-      font-size: 0.85rem;
-      outline: none;
-    }
-
-    input[type="number"]:focus,
-    input[type="text"]:focus,
-    select:focus {
-      border-color: #7dd3fc;
-      box-shadow: 0 0 0 1px rgba(125, 211, 252, 0.7);
+    .checkbox-label input {
+      accent-color: #22c55e;
     }
 
     button {
       border-radius: 0.7rem;
       border: none;
       cursor: pointer;
-      padding: 0.45rem 0.9rem;
+      padding: 0.4rem 0.85rem;
       font-size: 0.85rem;
       display: inline-flex;
       align-items: center;
@@ -134,136 +155,147 @@
       box-shadow: 0 10px 25px rgba(34, 197, 94, 0.35);
     }
 
+    .btn-primary:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+    }
+
     .btn-outline {
       background: transparent;
       color: #e5e7eb;
       border: 1px solid rgba(148, 163, 184, 0.8);
     }
 
-    .btn-danger {
-      background: transparent;
-      border: 1px solid rgba(248, 113, 113, 0.7);
-      color: #fecaca;
-    }
-
-    .btn-primary:hover {
-      filter: brightness(1.08);
-      transform: translateY(-1px);
-    }
-
-    .btn-outline:hover,
-    .btn-danger:hover {
+    .btn-outline:hover {
       background: rgba(15, 23, 42, 0.8);
     }
 
-    .btn-sm {
-      padding: 0.2rem 0.5rem;
-      font-size: 0.75rem;
+    .tabs {
+      margin-top: 0.8rem;
+      margin-bottom: 0.4rem;
+      border-bottom: 1px solid rgba(55, 65, 81, 0.9);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+
+    .tab-btn {
+      border-radius: 0.7rem 0.7rem 0 0;
+      border: none;
+      padding: 0.3rem 0.7rem;
+      font-size: 0.78rem;
+      cursor: pointer;
+      background: transparent;
+      color: #9ca3af;
+      border-bottom: 2px solid transparent;
+    }
+
+    .tab-btn.active {
+      color: #f9fafb;
+      border-bottom-color: #38bdf8;
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.4));
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 0.75rem;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
+      margin-top: 0.4rem;
     }
 
     th,
     td {
-      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
       padding: 0.35rem 0.4rem;
+      border-bottom: 1px solid rgba(31, 41, 55, 0.9);
       text-align: left;
     }
 
     th {
-      font-size: 0.75rem;
-      opacity: 0.8;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.07em;
+      opacity: 0.8;
+      font-size: 0.72rem;
     }
 
     tbody tr:nth-child(even) {
-      background: rgba(15, 23, 42, 0.3);
-    }
-
-    tbody tr:hover {
       background: rgba(15, 23, 42, 0.7);
-    }
-
-    td input,
-    td select {
-      width: 100%;
-      box-sizing: border-box;
     }
 
     .type-pill {
       border-radius: 999px;
-      padding: 0.1rem 0.4rem;
-      font-size: 0.75rem;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      text-align: center;
+      padding: 0.05rem 0.35rem;
+      font-size: 0.7rem;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      display: inline-block;
       white-space: nowrap;
     }
 
     .type-Gold { border-color: #facc15; color: #facc15; }
-    .type-Yellow { border-color: #fde047; color: #fde047; }
+    .type-Special { border-color: #fbbf24; color: #fbbf24; }
     .type-Blue { border-color: #60a5fa; color: #bfdbfe; }
     .type-Red { border-color: #f97373; color: #fecaca; }
     .type-Green { border-color: #4ade80; color: #bbf7d0; }
-    .type-Purple { border-color: #a855f7; color: #e9d5ff; }
     .type-Inherit { border-color: #e5e7eb; color: #e5e7eb; }
+    .type-Purple { border-color: #a855f7; color: #e9d5ff; }
+
+    .variant-pill {
+      border-radius: 999px;
+      padding: 0.05rem 0.35rem;
+      font-size: 0.7rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: #e5e7eb;
+    }
 
     .results {
-      margin-top: 1.4rem;
-      padding-top: 1.1rem;
-      border-top: 1px dashed rgba(148, 163, 184, 0.6);
+      margin-top: 1.3rem;
+      padding-top: 1rem;
+      border-top: 1px dashed rgba(75, 85, 99, 0.9);
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 1.2rem;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 1rem;
     }
 
     .results-header {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       margin-bottom: 0.4rem;
     }
 
     .highlight {
-      font-weight: 600;
       color: #7dd3fc;
+      font-weight: 600;
     }
 
     .stat-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
       gap: 0.5rem;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
     }
 
     .stat {
-      background: rgba(15, 23, 42, 0.75);
+      background: rgba(15, 23, 42, 0.95);
       border-radius: 0.8rem;
-      padding: 0.5rem 0.7rem;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      font-size: 0.8rem;
+      padding: 0.5rem 0.6rem;
+      border: 1px solid rgba(55, 65, 81, 0.9);
     }
 
     .stat-label {
+      font-size: 0.72rem;
       opacity: 0.75;
-      font-size: 0.7rem;
-      letter-spacing: 0.05em;
       text-transform: uppercase;
+      letter-spacing: 0.07em;
     }
 
     .stat-value {
       font-size: 0.9rem;
-      margin-top: 0.2rem;
+      margin-top: 0.15rem;
     }
 
     .skill-list {
-      font-size: 0.8rem;
       list-style: none;
       padding-left: 0;
       margin: 0.3rem 0 0;
+      font-size: 0.78rem;
     }
 
     .skill-list li {
@@ -282,28 +314,25 @@
     .note {
       font-size: 0.7rem;
       opacity: 0.75;
-      margin-top: 0.4rem;
+      margin-top: 0.35rem;
     }
 
     .error {
       font-size: 0.8rem;
       color: #fecaca;
-      margin-top: 0.25rem;
+      margin-top: 0.35rem;
     }
 
-    @media (max-width: 800px) {
-      .card {
-        padding: 1.2rem 1rem 1.5rem;
-      }
+    .empty-msg {
+      font-size: 0.78rem;
+      opacity: 0.8;
+      padding: 0.4rem 0.1rem 0.1rem;
+    }
 
-      .results {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .controls {
-        flex-direction: column;
-        align-items: stretch;
-      }
+    @media (max-width: 900px) {
+      .card { padding: 1.25rem 1rem 1.5rem; }
+      .top-row { grid-template-columns: minmax(0, 1fr); }
+      .results { grid-template-columns: minmax(0, 1fr); }
     }
   </style>
 </head>
@@ -312,71 +341,135 @@
     <div class="card">
       <h1>Skill Rating Optimizer</h1>
       <div class="subtitle">
-        Enter your skills, their SP costs and ratings. Then set your SP budget and let the optimizer find the best combination.
-      </div>
-      <div class="badge-row">
-        <span class="badge">Inherit</span>
-        <span class="badge">Gold</span>
-        <span class="badge">Yellow</span>
-        <span class="badge">Blue</span>
-        <span class="badge">Red</span>
-        <span class="badge">Green</span>
-        <span class="badge">Purple</span>
-      </div>
-      <div class="aptitude-info">
-        Aptitude multipliers (applied automatically for <strong>Gold / Yellow / Blue / Red</strong>):<br />
-        <code>A = ×1.00</code>,
-        <code>B = ×0.90</code>,
-        <code>C = ×0.80</code>,
-        <code>D = ×0.70</code>
-        &nbsp;|&nbsp;
-        Other types ignore aptitude and use the base rating as-is.
+        Create your Balloon 🎈🎈🎈
       </div>
 
-      <div class="controls">
-        <div class="form-group">
-          <label for="budgetInput">SP Budget</label>
-          <input type="number" id="budgetInput" min="0" step="1" value="1000" />
+      <div class="top-row">
+        <!-- Aptitudes -->
+        <div class="panel">
+          <div class="panel-title">Aptitude Grades</div>
+          <div class="apt-grid">
+            <div class="apt-row">
+              <span class="apt-label">Sprint</span>
+              <select id="apt-Sprint" class="apt-select">
+                <option value="S-A">S-A</option>
+                <option value="B-C">B-C</option>
+                <option value="D-E-F">D-E-F</option>
+                <option value="G">G</option>
+              </select>
+            </div>
+            <div class="apt-row">
+              <span class="apt-label">Mile</span>
+              <select id="apt-Mile" class="apt-select">
+                <option value="S-A">S-A</option>
+                <option value="B-C">B-C</option>
+                <option value="D-E-F">D-E-F</option>
+                <option value="G">G</option>
+              </select>
+            </div>
+            <div class="apt-row">
+              <span class="apt-label">Medium</span>
+              <select id="apt-Medium" class="apt-select">
+                <option value="S-A">S-A</option>
+                <option value="B-C">B-C</option>
+                <option value="D-E-F">D-E-F</option>
+                <option value="G">G</option>
+              </select>
+            </div>
+            <div class="apt-row">
+              <span class="apt-label">Long</span>
+              <select id="apt-Long" class="apt-select">
+                <option value="S-A">S-A</option>
+                <option value="B-C">B-C</option>
+                <option value="D-E-F">D-E-F</option>
+                <option value="G">G</option>
+              </select>
+            </div>
+            <div class="apt-row">
+              <span class="apt-label">Front</span>
+              <select id="apt-Front" class="apt-select">
+                <option value="S-A">S-A</option>
+                <option value="B-C">B-C</option>
+                <option value="D-E-F">D-E-F</option>
+                <option value="G">G</option>
+              </select>
+            </div>
+            <div class="apt-row">
+              <span class="apt-label">Pace Chaser</span>
+              <select id="apt-Pace_Chaser" class="apt-select">
+                <option value="S-A">S-A</option>
+                <option value="B-C">B-C</option>
+                <option value="D-E-F">D-E-F</option>
+                <option value="G">G</option>
+              </select>
+            </div>
+            <div class="apt-row">
+              <span class="apt-label">Late Surger</span>
+              <select id="apt-Late_Surger" class="apt-select">
+                <option value="S-A">S-A</option>
+                <option value="B-C">B-C</option>
+                <option value="D-E-F">D-E-F</option>
+                <option value="G">G</option>
+              </select>
+            </div>
+            <div class="apt-row">
+              <span class="apt-label">End Closer</span>
+              <select id="apt-End_Closer" class="apt-select">
+                <option value="S-A">S-A</option>
+                <option value="B-C">B-C</option>
+                <option value="D-E-F">D-E-F</option>
+                <option value="G">G</option>
+              </select>
+            </div>
+          </div>
+          <div class="note">
+            Skills with an aptitude use the rating from the matching grade column (S-A / B-C / D-E-F / G).
+          </div>
         </div>
-        <div class="form-group">
-          <label>&nbsp;</label>
-          <button id="optimizeBtn" class="btn-primary" type="button">
-            🧮 Optimize Build
-          </button>
-        </div>
-        <div class="form-group">
-          <label>&nbsp;</label>
-          <button id="addRowBtn" class="btn-outline" type="button">
-            ➕ Add Skill Row
-          </button>
-        </div>
-        <div class="form-group">
-          <label>&nbsp;</label>
-          <button id="clearRowsBtn" class="btn-danger" type="button">
-            🗑 Clear All Skills
-          </button>
+
+        <!-- Budget & control -->
+        <div class="panel">
+          <div class="panel-title">Budget & Options</div>
+          <div class="budget-row">
+            <label for="budgetInput">SP Budget</label>
+            <input type="number" id="budgetInput" min="0" step="1" value="1000" />
+            <button id="optimizeBtn" class="btn-primary" type="button">
+              🧮 Optimize
+            </button>
+			<button id="resetSkillsBtn" class="btn-outline" type="button">🔄 Reset Skills</button>
+			<button id="resetAllBtn" class="btn-danger" type="button">🗑 Reset All</button>
+          </div>
         </div>
       </div>
 
-      <div id="errorBox" class="error" style="display:none;"></div>
+      <!-- Skill tabs -->
+      <div class="tabs" id="tabsRow">
+        <!-- populated by JS -->
+      </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th style="width: 18%;">Name</th>
-            <th style="width: 12%;">Type</th>
-            <th style="width: 11%;">SP Cost</th>
-            <th style="width: 12%;">Base Rating</th>
-            <th style="width: 12%;">Aptitude</th>
-            <th style="width: 11%;">Effective Rating</th>
-            <th style="width: 7%;">Buy?</th>
-            <th style="width: 7%;">&nbsp;</th>
-          </tr>
-        </thead>
-        <tbody id="skillsBody">
-        </tbody>
-      </table>
+      <div id="skillsContainer">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Variant</th>
+              <th>Type</th>
+              <th>SP Cost</th>
+              <th>Aptitude</th>
+              <th>Grade Used</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody id="skillsBody">
+            <!-- rows -->
+          </tbody>
+        </table>
+        <div id="skillsEmpty" class="empty-msg" style="display:none;">
+          No skills loaded for this type. Add a data file in <code>data/</code> to populate the list.
+        </div>
+      </div>
 
+      <!-- Results -->
       <div class="results" id="resultsSection" style="display:none;">
         <div>
           <div class="results-header">
@@ -384,7 +477,7 @@
           </div>
           <div class="stat-grid">
             <div class="stat">
-              <div class="stat-label">Total Rating</div>
+              <div class="stat-label">Total Rating (with Purple)</div>
               <div class="stat-value" id="statRating">0</div>
             </div>
             <div class="stat">
@@ -399,9 +492,10 @@
               <div class="stat-label">Rating per SP</div>
               <div class="stat-value" id="statEfficiency">0</div>
             </div>
-          </div>
-          <div class="note">
-            Rating uses <strong>base rating × aptitude multiplier</strong> for eligible colors.
+            <div class="stat">
+              <div class="stat-label">Purple Penalty</div>
+              <div class="stat-value" id="statPurple">0</div>
+            </div>
           </div>
         </div>
         <div>
@@ -409,311 +503,489 @@
           <ul id="chosenList" class="skill-list"></ul>
         </div>
       </div>
+
+      <div id="errorBox" class="error" style="display:none;"></div>
     </div>
   </div>
 
-  <script>
-    // ----- CONFIGURABLE PARTS -----
-    const APTITUDE_FACTORS = {
-      A: 1.0,
-      B: 0.9,
-      C: 0.8,
-      D: 0.7
-    };
+<script>
+  // ---------------- CONFIG ----------------
+  const SKILL_TYPES = ["Gold", "Special", "Blue", "Red", "Green", "Inherit", "Purple"];
 
-    const APTITUDE_TYPES = new Set(["Gold", "Yellow", "Blue", "Red"]);
+  const SKILL_FILES = {
+    Inherit: "data/inherit.json",
+    Gold: "data/gold.json",
+    Special: "data/special.json",
+    Blue: "data/blue.json",
+    Red: "data/red.json",
+    Green: "data/green.json",
+    Purple: "data/purple.json"
+  };
 
-    // ----- DOM ELEMENTS -----
-    const skillsBody = document.getElementById("skillsBody");
-    const addRowBtn = document.getElementById("addRowBtn");
-    const clearRowsBtn = document.getElementById("clearRowsBtn");
-    const optimizeBtn = document.getElementById("optimizeBtn");
-    const budgetInput = document.getElementById("budgetInput");
-    const errorBox = document.getElementById("errorBox");
+  // Aptitudes (keys are ID-safe; labels match JSON)
+  const APTITUDES = [
+    { key: "Sprint",       label: "Sprint" },
+    { key: "Mile",         label: "Mile" },
+    { key: "Medium",       label: "Medium" },
+    { key: "Long",         label: "Long" },
+    { key: "Front",        label: "Front" },
+    { key: "Pace_Chaser",  label: "Pace Chaser" },
+    { key: "Late_Surger",  label: "Late Surger" },
+    { key: "End_Closer",   label: "End Closer" }
+  ];
 
-    const resultsSection = document.getElementById("resultsSection");
-    const statRating = document.getElementById("statRating");
-    const statSP = document.getElementById("statSP");
-    const statCount = document.getElementById("statCount");
-    const statEfficiency = document.getElementById("statEfficiency");
-    const chosenList = document.getElementById("chosenList");
+  const GRADE_KEYS = ["S-A", "B-C", "D-E-F", "G"];
 
-    let rowCounter = 0;
+  // ---------------- STATE ----------------
+  // Each skill:
+  // { type, name, variant, ratingBase, aptitude, grades, spCost, groupId, use }
+  let ALL_SKILLS = [];
+  let activeType = "Gold";
+  let GROUP_COUNTER = 0; // base+upgraded pair id
 
-    // ----- HELPERS -----
-    function createOption(value, label) {
-      const opt = document.createElement("option");
-      opt.value = value;
-      opt.textContent = label;
-      return opt;
+  // ---------------- DOM ----------------
+  const tabsRow = document.getElementById("tabsRow");
+  const skillsBody = document.getElementById("skillsBody");
+  const skillsEmpty = document.getElementById("skillsEmpty");
+  const optimizeBtn = document.getElementById("optimizeBtn");
+  const budgetInput = document.getElementById("budgetInput");
+  const errorBox = document.getElementById("errorBox");
+  const resultsSection = document.getElementById("resultsSection");
+  const statRating = document.getElementById("statRating");
+  const statSP = document.getElementById("statSP");
+  const statCount = document.getElementById("statCount");
+  const statEfficiency = document.getElementById("statEfficiency");
+  const statPurple = document.getElementById("statPurple");
+  const chosenList = document.getElementById("chosenList");
+  const resetSkillsBtn = document.getElementById("resetSkillsBtn");
+  const resetAllBtn = document.getElementById("resetAllBtn");
+
+  // ---------------- HELPERS ----------------
+  function getAptitudeGrades() {
+    const map = {};
+    for (const { key, label } of APTITUDES) {
+      const el = document.getElementById("apt-" + key);
+      const grade = el ? el.value : "S-A";
+      map[label] = grade; // map by label, e.g. "Mile"
     }
+    return map;
+  }
 
-    function recalcRowEffectiveRating(tr) {
-      const typeSel = tr.querySelector(".skill-type");
-      const ratingInput = tr.querySelector(".skill-rating");
-      const aptitudeSel = tr.querySelector(".skill-aptitude");
-      const effCell = tr.querySelector(".skill-effective");
+  // ratingBase comes from JSON "value"
+  function computeSkillRating(skill, gradeMap) {
+    if (skill.aptitude && gradeMap[skill.aptitude]) {
+      const grade = gradeMap[skill.aptitude];
+      const value = skill.grades[grade];
+      if (value != null && !Number.isNaN(value)) {
+        return value;
+      }
+    }
+    // For Inherit/Purple & others without grade data, fall back to ratingBase
+    return Number.isFinite(skill.ratingBase) ? skill.ratingBase : 0;
+  }
 
-      let baseRating = parseFloat(ratingInput.value);
-      if (isNaN(baseRating) || baseRating < 0) baseRating = 0;
+	function createTabs() {
+	  tabsRow.innerHTML = "";
+	  for (const type of SKILL_TYPES) {
+		const btn = document.createElement("button");
+		btn.className = "tab-btn" + (type === activeType ? " active" : "");
+		btn.textContent = type;
+		btn.dataset.type = type;
+		btn.addEventListener("click", () => {
+		  // Save current tab's SP cost edits before switching
+		  syncSpCostsFromDom();
 
-      let effective = baseRating;
+		  activeType = type;
+		  document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+		  btn.classList.add("active");
+		  renderSkillsTable();
+		});
+		tabsRow.appendChild(btn);
+	  }
+	}
+	
+  function renderSkillsTable() {
+    const gradeMap = getAptitudeGrades();
+    const rows = ALL_SKILLS.filter(s => s.type === activeType);
+    skillsBody.innerHTML = "";
 
-      const typeVal = typeSel.value;
-      if (APTITUDE_TYPES.has(typeVal)) {
-        const apt = aptitudeSel.value || "A";
-        const factor = APTITUDE_FACTORS[apt] || 1.0;
-        effective = baseRating * factor;
-        aptitudeSel.disabled = false;
+    if (rows.length === 0) {
+      skillsEmpty.style.display = "block";
+      return;
+    }
+    skillsEmpty.style.display = "none";
+
+    for (const s of rows) {
+      const tr = document.createElement("tr");
+      const rawRating = computeSkillRating(s, gradeMap);
+      const displayRating = s.type === "Purple" ? -rawRating : rawRating; // show minus for purple
+      const gradeUsed = s.aptitude ? gradeMap[s.aptitude] : "-";
+      const idx = ALL_SKILLS.indexOf(s);
+
+      // SP Cost cell
+      let costCellHtml;
+      if (s.type === "Purple") {
+        costCellHtml = "0";
       } else {
-        aptitudeSel.disabled = true;
-        aptitudeSel.value = "";
+        const val = s.spCost != null ? s.spCost : "";
+        costCellHtml = `<input type="number" min="0" step="1"
+                              class="sp-cost-input"
+                              data-skill-index="${idx}"
+                              value="${val}">`;
       }
 
-      effCell.textContent = effective.toFixed(2);
-    }
-
-    function addSkillRow(defaults = {}) {
-      const tr = document.createElement("tr");
-      const id = rowCounter++;
-      tr.dataset.rowId = id;
+      // Name cell: for Purple, wrap in a label + checkbox; others: just name
+      let nameCellHtml;
+      if (s.type === "Purple") {
+        const checked = s.use ? "checked" : "";
+        nameCellHtml = `
+          <label>
+            <input type="checkbox"
+                   class="purple-toggle"
+                   data-skill-index="${idx}"
+                   ${checked}>
+            ${s.name}
+          </label>
+        `;
+      } else {
+        nameCellHtml = s.name;
+      }
 
       tr.innerHTML = `
-        <td>
-          <input type="text" class="skill-name" placeholder="Skill ${id + 1}" value="${defaults.name || ""}">
-        </td>
-        <td>
-          <select class="skill-type">
-            <option value="Inherit">Inherit</option>
-            <option value="Gold">Gold</option>
-            <option value="Yellow">Yellow</option>
-            <option value="Blue">Blue</option>
-            <option value="Red">Red</option>
-            <option value="Green">Green</option>
-            <option value="Purple">Purple</option>
-          </select>
-        </td>
-        <td>
-          <input type="number" min="0" step="1" class="skill-cost" value="${defaults.cost ?? 0}">
-        </td>
-        <td>
-          <input type="number" min="0" step="1" class="skill-rating" value="${defaults.rating ?? 0}">
-        </td>
-        <td>
-          <select class="skill-aptitude">
-            <option value="">(none)</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-            <option value="D">D</option>
-          </select>
-        </td>
-        <td class="skill-effective">0.00</td>
-        <td style="text-align:center;">
-          <input type="checkbox" class="skill-include" checked>
-        </td>
-        <td>
-          <button type="button" class="btn-danger btn-sm delete-row">✕</button>
-        </td>
+        <td>${nameCellHtml}</td>
+        <td><span class="variant-pill">${s.variant}</span></td>
+        <td><span class="type-pill type-${s.type}">${s.type}</span></td>
+        <td>${costCellHtml}</td>
+        <td>${s.aptitude || "-"}</td>
+        <td>${gradeUsed}</td>
+        <td>${displayRating.toFixed(2)}</td>
       `;
-
-      const typeSel = tr.querySelector(".skill-type");
-      const ratingInput = tr.querySelector(".skill-rating");
-      const aptitudeSel = tr.querySelector(".skill-aptitude");
-      const costInput = tr.querySelector(".skill-cost");
-
-      // Apply defaults if provided
-      if (defaults.type) typeSel.value = defaults.type;
-      if (defaults.aptitude) aptitudeSel.value = defaults.aptitude;
-
-      // Wire events
-      typeSel.addEventListener("change", () => recalcRowEffectiveRating(tr));
-      ratingInput.addEventListener("input", () => recalcRowEffectiveRating(tr));
-      aptitudeSel.addEventListener("change", () => recalcRowEffectiveRating(tr));
-      costInput.addEventListener("input", () => {
-        // cost validity; no extra logic yet
-      });
-
-      tr.querySelector(".delete-row").addEventListener("click", () => {
-        tr.remove();
-      });
-
       skillsBody.appendChild(tr);
-      recalcRowEffectiveRating(tr);
+    }
+  }
+
+  // Sync user-entered SP cost from DOM back into ALL_SKILLS.spCost
+  function syncSpCostsFromDom() {
+    document.querySelectorAll(".sp-cost-input").forEach(input => {
+      const idx = parseInt(input.dataset.skillIndex, 10);
+      if (Number.isNaN(idx) || !ALL_SKILLS[idx]) return;
+      const raw = parseInt(input.value, 10);
+      const val = Number.isNaN(raw) || raw <= 0 ? 0 : raw;
+      ALL_SKILLS[idx].spCost = val;
+    });
+  }
+
+  // ---------------- DATA LOADING (JSON) ----------------
+  async function loadAllSkills() {
+    console.log("[Skills] Loading all skill types...");
+    const promises = SKILL_TYPES.map(type => loadSkillsForType(type));
+    await Promise.all(promises);
+    console.log("[Skills] Loaded total skills:", ALL_SKILLS.length);
+    createTabs();
+    renderSkillsTable();
+  }
+
+  async function loadSkillsForType(type) {
+    const path = SKILL_FILES[type];
+    if (!path) return;
+    try {
+      const res = await fetch(path);
+      if (!res.ok) {
+        console.warn(`[Skills] No file or bad response for type ${type}: ${res.status}`);
+        return;
+      }
+      const data = await res.json();
+      console.log(`[Skills] Loaded ${type} JSON:`, data);
+      parseSkillJson(data, type);
+    } catch (e) {
+      console.error(`[Skills] Error loading JSON for type ${type}:`, e);
+      errorBox.textContent = `Error loading data for ${type}: ${e.message}`;
+      errorBox.style.display = "block";
+    }
+  }
+
+  function parseSkillJson(rows, type) {
+    if (!Array.isArray(rows)) {
+      console.warn(`[Skills] JSON for type ${type} is not an array; ignoring.`);
+      return;
     }
 
-    function clearSkills() {
-      skillsBody.innerHTML = "";
+    const makeSkill = (variantObj, variantLabel, groupId) => {
+      if (!variantObj || !variantObj.name) return null;
+
+      // ratingBase comes from "value" in JSON (hidden data, not SP cost)
+      const ratingBase = Number(variantObj.value);
+
+      const ratings = variantObj.ratings && typeof variantObj.ratings === "object"
+        ? variantObj.ratings
+        : {};
+
+      const grades = {
+        "S-A": toNumberOrNull(ratings["S-A"]),
+        "B-C": toNumberOrNull(ratings["B-C"]),
+        "D-E-F": toNumberOrNull(ratings["D-E-F"]),
+        "G": toNumberOrNull(ratings["G"])
+      };
+
+      const aptitude = variantObj.aptitude || ""; // Inherit/Purple usually no aptitude
+
+      return {
+        type,
+        name: variantObj.name,
+        variant: variantLabel,
+        ratingBase: Number.isFinite(ratingBase) ? ratingBase : 0,
+        aptitude,
+        grades,
+        spCost: null,   // user will input; Purple stays 0
+        groupId,
+        use: false      // for Purple per-skill toggle
+      };
+    };
+
+    for (const row of rows) {
+      const groupId = GROUP_COUNTER++;
+      const baseSkill = makeSkill(row.base, "Base", groupId);
+      const upSkill = makeSkill(row.upgraded, "Upgraded", groupId);
+      if (baseSkill) ALL_SKILLS.push(baseSkill);
+      if (upSkill) ALL_SKILLS.push(upSkill);
+    }
+
+    console.log(`[Skills] After parsing ${type}, total skills:`, ALL_SKILLS.length);
+  }
+
+  function toNumberOrNull(v) {
+    if (v === null || v === undefined || v === "") return null;
+    const num = Number(v);
+    return Number.isNaN(num) ? null : num;
+  }
+
+  // ---------------- OPTIMIZER (multiple-choice knapsack) ----------------
+  function optimize() {
+    errorBox.style.display = "none";
+    const budgetRaw = parseInt(budgetInput.value, 10);
+    const budget = Number.isNaN(budgetRaw) || budgetRaw < 0 ? 0 : budgetRaw;
+
+    if (budget <= 0) {
+      errorBox.textContent = "Please enter a positive SP budget.";
+      errorBox.style.display = "block";
       resultsSection.style.display = "none";
-      errorBox.style.display = "none";
+      return;
     }
 
-    // Core optimization: 0/1 knapsack
-    function optimize() {
-      errorBox.style.display = "none";
-      const budgetRaw = parseInt(budgetInput.value, 10);
-      const budget = isNaN(budgetRaw) || budgetRaw < 0 ? 0 : budgetRaw;
+    // Sync SP cost from UI first
+    syncSpCostsFromDom();
 
-      if (budget <= 0) {
-        errorBox.textContent = "Please enter a positive SP budget.";
-        errorBox.style.display = "block";
-        resultsSection.style.display = "none";
-        return;
-      }
+    const gradeMap = getAptitudeGrades();
 
-      const rows = Array.from(skillsBody.querySelectorAll("tr"))
-        .filter(tr => tr.querySelector(".skill-include")?.checked);
+    // Group non-purple skills by groupId
+    // Only skills with SP cost > 0 are considered "available to buy"
+    const groupsMap = new Map();
+    for (const s of ALL_SKILLS) {
+      if (s.type === "Purple") continue; // purple handled separately
 
-      if (rows.length === 0) {
-        errorBox.textContent = "Please add at least one skill (and ensure it's marked as 'Buy?').";
-        errorBox.style.display = "block";
-        resultsSection.style.display = "none";
-        return;
-      }
+      const cost = s.spCost != null ? s.spCost : 0;
+      if (cost <= 0) continue; // not available (user didn't input cost)
 
-      const skills = [];
-      for (const tr of rows) {
-        const name = tr.querySelector(".skill-name").value || "(unnamed)";
-        const type = tr.querySelector(".skill-type").value;
-        let cost = parseInt(tr.querySelector(".skill-cost").value, 10);
-        if (isNaN(cost) || cost < 0) cost = 0;
+      const rating = computeSkillRating(s, gradeMap);
+      const gid = s.groupId != null ? s.groupId : s.name + ":" + s.variant;
+      if (!groupsMap.has(gid)) groupsMap.set(gid, []);
+      groupsMap.get(gid).push({ skill: s, cost, rating });
+    }
 
-        let baseRating = parseFloat(tr.querySelector(".skill-rating").value);
-        if (isNaN(baseRating) || baseRating < 0) baseRating = 0;
+    const groupList = Array.from(groupsMap.values());
+    const G = groupList.length;
 
-        const aptitude = tr.querySelector(".skill-aptitude").value;
-        let factor = 1.0;
-        if (APTITUDE_TYPES.has(type) && aptitude && APTITUDE_FACTORS[aptitude] != null) {
-          factor = APTITUDE_FACTORS[aptitude];
-        }
+    if (G === 0) {
+      errorBox.textContent = "No skills with SP cost set. Enter SP cost for the skills you can buy.";
+      errorBox.style.display = "block";
+      resultsSection.style.display = "none";
+      return;
+    }
 
-        const effectiveRating = baseRating * factor;
+    // Complexity guard
+    if (G * budget * 2 > 2_000_000) {
+      errorBox.textContent =
+        "This SP budget and skill count are too large for the browser. " +
+        "Try reducing the budget or the number of available skills.";
+      errorBox.style.display = "block";
+      resultsSection.style.display = "none";
+      return;
+    }
 
-        skills.push({
-          name,
-          type,
-          cost,
-          baseRating,
-          aptitude,
-          effectiveRating
-        });
-      }
+    // Multiple-choice knapsack:
+    // dp[g][sp] = best rating using first g groups
+    const dp = Array.from({ length: G + 1 }, () => new Float64Array(budget + 1));
+    const choice = Array.from({ length: G + 1 }, () => new Int16Array(budget + 1).fill(-1));
 
-      const n = skills.length;
+    for (let g = 1; g <= G; g++) {
+      const group = groupList[g - 1];
+      for (let sp = 0; sp <= budget; sp++) {
+        // Option 1: take nothing from this group
+        let best = dp[g - 1][sp];
+        let chosenIdx = -1;
 
-      // Safety guard for huge DP tables
-      if (n * budget > 2_000_000) {
-        errorBox.textContent =
-          "This budget and skill count would be too heavy for the browser. " +
-          "Try lowering the SP budget or removing some skills.";
-        errorBox.style.display = "block";
-        resultsSection.style.display = "none";
-        return;
-      }
-
-      const dp = Array.from({ length: n + 1 }, () =>
-        new Float64Array(budget + 1)
-      );
-      const take = Array.from({ length: n + 1 }, () =>
-        new Uint8Array(budget + 1)
-      );
-
-      for (let i = 1; i <= n; i++) {
-        const { cost, effectiveRating } = skills[i - 1];
-        for (let sp = 0; sp <= budget; sp++) {
-          let best = dp[i - 1][sp]; // not take
-          let chosen = 0;
-
+        // Option 2: take exactly one item from this group
+        for (let k = 0; k < group.length; k++) {
+          const { cost, rating } = group[k];
           if (cost <= sp) {
-            const candidate = dp[i - 1][sp - cost] + effectiveRating;
+            const candidate = dp[g - 1][sp - cost] + rating;
             if (candidate > best) {
               best = candidate;
-              chosen = 1;
+              chosenIdx = k;
             }
           }
-
-          dp[i][sp] = best;
-          take[i][sp] = chosen;
         }
+
+        dp[g][sp] = best;
+        choice[g][sp] = chosenIdx; // -1 means no item chosen from this group
       }
-
-      // Reconstruct solution
-      let remainingSP = budget;
-      const chosenIndices = [];
-      for (let i = n; i >= 1; i--) {
-        if (take[i][remainingSP] === 1) {
-          chosenIndices.push(i - 1);
-          remainingSP -= skills[i - 1].cost;
-        }
-      }
-      chosenIndices.reverse();
-
-      let usedSP = 0;
-      let totalRating = 0;
-      chosenList.innerHTML = "";
-
-      for (const idx of chosenIndices) {
-        const s = skills[idx];
-        usedSP += s.cost;
-        totalRating += s.effectiveRating;
-
-        const li = document.createElement("li");
-        li.innerHTML = `
-          <span class="highlight">${s.name}</span>
-          <span class="pill-small type-${s.type}">${s.type}</span>
-          <span class="pill-small">Cost: ${s.cost}</span>
-          <span class="pill-small">Rating: ${s.effectiveRating.toFixed(2)}</span>
-          ${
-            s.aptitude
-              ? `<span class="pill-small">Apt: ${s.aptitude}</span>`
-              : ""
-          }
-        `;
-        chosenList.appendChild(li);
-      }
-
-      statRating.textContent = totalRating.toFixed(2);
-      statSP.textContent = `${usedSP} / ${budget}`;
-      statCount.textContent = chosenIndices.length.toString();
-      statEfficiency.textContent =
-        usedSP > 0 ? (totalRating / usedSP).toFixed(4) : "0";
-
-      resultsSection.style.display = "grid";
     }
 
-    // ----- EVENT WIRING -----
-    addRowBtn.addEventListener("click", () => addSkillRow());
-    clearRowsBtn.addEventListener("click", clearSkills);
-    optimizeBtn.addEventListener("click", optimize);
+    // Reconstruct chosen items
+    let remainingSP = budget;
+    const chosenItems = [];
 
-    // Prepopulate a few example rows so the page isn't empty
-    addSkillRow({
-      name: "Sample Gold A",
-      type: "Gold",
-      cost: 120,
-      rating: 200,
-      aptitude: "A"
+    for (let g = G; g >= 1; g--) {
+      const chosenIdx = choice[g][remainingSP];
+      if (chosenIdx >= 0) {
+        const item = groupList[g - 1][chosenIdx];
+        chosenItems.push(item);
+        remainingSP -= item.cost;
+      }
+    }
+    chosenItems.reverse();
+
+    let usedSP = 0;
+    let totalRating = 0;
+    chosenList.innerHTML = "";
+
+    for (const it of chosenItems) {
+      const s = it.skill;
+      usedSP += it.cost;
+      totalRating += it.rating;
+      const gradeUsed = s.aptitude ? getAptitudeGrades()[s.aptitude] : "-";
+
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <span class="highlight">${s.name}</span>
+        <span class="pill-small">${s.variant}</span>
+        <span class="pill-small type-${s.type}">${s.type}</span>
+        <span class="pill-small">Cost: ${it.cost}</span>
+        <span class="pill-small">Rating: ${it.rating.toFixed(2)}</span>
+        ${s.aptitude ? `<span class="pill-small">${s.aptitude} (${gradeUsed})</span>` : ""}
+      `;
+      chosenList.appendChild(li);
+    }
+
+    // Purple penalty: only for per-skill toggles that are ON
+    let purplePenalty = 0;
+    const gradeMapNow = getAptitudeGrades();
+    for (const s of ALL_SKILLS.filter(x => x.type === "Purple" && x.use)) {
+      const r = computeSkillRating(s, gradeMapNow);
+      purplePenalty -= r;
+    }
+
+    const finalRating = totalRating + purplePenalty;
+
+    statRating.textContent = finalRating.toFixed(2);
+    statSP.textContent = `${usedSP} / ${budget}`;
+    statCount.textContent = chosenItems.length.toString();
+    statEfficiency.textContent = usedSP > 0 ? (finalRating / usedSP).toFixed(4) : "0";
+    statPurple.textContent = purplePenalty.toFixed(2);
+
+    resultsSection.style.display = "grid";
+  }
+
+  // ---------------- RESET: SKILLS ONLY ----------------
+  function resetSkills() {
+    if (!confirm("Reset all SP costs and results?")) return;
+
+    // Clear SP cost inputs (except Purple, which is always 0) and clear purple use
+    ALL_SKILLS.forEach(s => {
+      if (s.type !== "Purple") {
+        s.spCost = null;
+      }
+      if (s.type === "Purple") {
+        s.use = false;
+      }
     });
-    addSkillRow({
-      name: "Sample Blue B",
-      type: "Blue",
-      cost: 80,
-      rating: 140,
-      aptitude: "B"
+
+    // Clear results
+    resultsSection.style.display = "none";
+    errorBox.style.display = "none";
+    chosenList.innerHTML = "";
+
+    statRating.textContent = "0";
+    statSP.textContent = "0 / 0";
+    statCount.textContent = "0";
+    statEfficiency.textContent = "0";
+    statPurple.textContent = "0";
+
+    renderSkillsTable();
+  }
+
+  // ---------------- RESET: EVERYTHING ----------------
+  function resetAll() {
+    if (!confirm("Reset ALL settings, skills, aptitudes, and results?")) return;
+
+    // 1. Clear SP costs and purple toggles
+    ALL_SKILLS.forEach(s => {
+      if (s.type !== "Purple") {
+        s.spCost = null;
+      }
+      if (s.type === "Purple") {
+        s.use = false;
+      }
     });
-    addSkillRow({
-      name: "Sample Red C",
-      type: "Red",
-      cost: 60,
-      rating: 110,
-      aptitude: "C"
+
+    // 2. Reset aptitude dropdowns
+    APTITUDES.forEach(({ key }) => {
+      const sel = document.getElementById("apt-" + key);
+      if (sel) sel.value = "S-A";
     });
-    addSkillRow({
-      name: "Sample Inherit",
-      type: "Inherit",
-      cost: 50,
-      rating: 90
-    });
-  </script>
+
+    // 3. Clear results
+    resultsSection.style.display = "none";
+    errorBox.style.display = "none";
+    chosenList.innerHTML = "";
+
+    statRating.textContent = "0";
+    statSP.textContent = "0 / 0";
+    statCount.textContent = "0";
+    statEfficiency.textContent = "0";
+    statPurple.textContent = "0";
+
+    // 4. Re-render table
+    renderSkillsTable();
+  }
+
+  // ---------------- INIT & EVENT WIRING ----------------
+	function wireAptitudeListeners() {
+	  document.querySelectorAll(".apt-select").forEach(sel => {
+		sel.addEventListener("change", () => {
+		  // Save any SP cost edits before re-render
+		  syncSpCostsFromDom();
+		  renderSkillsTable();
+		});
+	  });
+	}
+
+  optimizeBtn.addEventListener("click", optimize);
+  resetSkillsBtn.addEventListener("click", resetSkills);
+  resetAllBtn.addEventListener("click", resetAll);
+  wireAptitudeListeners();
+
+  // Per-skill purple toggle handling (event delegation)
+  document.addEventListener("change", event => {
+    const target = event.target;
+    if (!target.classList.contains("purple-toggle")) return;
+    const idx = parseInt(target.dataset.skillIndex, 10);
+    if (Number.isNaN(idx) || !ALL_SKILLS[idx]) return;
+    ALL_SKILLS[idx].use = target.checked;
+  });
+
+  loadAllSkills();
+</script>
+
 </body>
 </html>
