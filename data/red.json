@@ -2,7 +2,136 @@
   "blocks": [
     {
       "aptitude": "",
-      "baseValue": 100,
+      "baseValue": 217,
+      "baseRatings": {
+        "S-A": null,
+        "B-C": null,
+        "D-E-F": null,
+        "G": null
+      },
+      "goldValue": 508,
+      "goldRatings": {
+        "S-A": null,
+        "B-C": null,
+        "D-E-F": null,
+        "G": null
+      },
+      "pairs": [
+        ["Hesitant Front Runners", null],
+        ["Hesitant Pace Chasers", null],
+        ["Hesitant Late Surgers", null],
+        ["Hesitant End Closers", null],
+        ["Trick (Front)", "Tantalizing Trick"],
+        ["Trick (Rear)", null],
+        ["Subdued Front Runners", null],
+        ["Flustered Front Runners", null],
+        ["Subdued Pace Chasers", null],
+        ["Flustered Pace Chasers", null],
+        ["Subdued Late Surgers", null],
+        ["Flustered Late Surgers", null],
+        ["Subdued End Closers", null],
+        ["Flustered End Closers", null]
+      ]
+    },
+    {
+      "aptitude": "Sprint",
+      "baseValue": 288,
+      "baseRatings": {
+        "S-A": 288,
+        "B-C": 236,
+        "D-E-F": 210,
+        "G": 183
+      },
+      "goldValue": 559,
+      "goldRatings": {
+        "S-A": 559,
+        "B-C": 457,
+        "D-E-F": 406,
+        "G": 356
+      },
+      "pairs": [
+        ["Intimidate", "Adored By All"],
+        ["Stop Right There!", "You've Got No Shot"]
+      ]
+    },
+    {
+      "aptitude": "Mile",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "goldValue": 559,
+      "goldRatings": {
+        "S-A": 559,
+        "B-C": 457,
+        "D-E-F": 406,
+        "G": 356
+      },
+      "pairs": [
+        ["Speed Eater", "Greed for Speed"],
+        ["Opening Gambit", "Battle Formation"]
+      ]
+    },
+    {
+      "aptitude": "Medium",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "goldValue": 559,
+      "goldRatings": {
+        "S-A": 559,
+        "B-C": 457,
+        "D-E-F": 406,
+        "G": 356
+      },
+      "pairs": [
+        ["Tether", "Dominator"],
+        ["Murmur", "Mystifying Murmur"]
+      ]
+    },
+    {
+      "aptitude": "End",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "goldValue": 559,
+      "goldRatings": {
+        "S-A": 559,
+        "B-C": 457,
+        "D-E-F": 406,
+        "G": 356
+      },
+      "pairs": [
+        ["Intense Gaze", "Petrifying Gaze"]
+      ]
+    },
+    {
+      "aptitude": "Front",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "pairs": [
+        ["Restart", null]
+      ]
+    },
+    {
+      "aptitude": "",
+      "baseValue": 174,
       "baseRatings": {
         "S-A": null,
         "B-C": null,
@@ -10,8 +139,90 @@
         "G": null
       },
       "pairs": [
-        ["Test Skill 1", null],
-        ["Test Skill 2", null]
+        ["Frenzied Front Runners", null],
+        ["Frenzied Pace Chasers", null],
+        ["Frenzied Late Surgers", null],
+        ["Frenzied End Closers", null]
+      ]
+    },
+    {
+      "aptitude": "Long",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "goldValue": 507,
+      "goldRatings": {
+        "S-A": 507,
+        "B-C": 415,
+        "D-E-F": 369,
+        "G": 323
+      },
+      "pairs": [
+        ["Stamina Eater", "Stamina Siphon"]
+      ]
+    },
+    {
+      "aptitude": "Late",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "goldValue": 559,
+      "goldRatings": {
+        "S-A": 559,
+        "B-C": 457,
+        "D-E-F": 406,
+        "G": 356
+      },
+      "pairs": [
+        ["Sharp Gaze", "All-Seeing Eyes"]
+      ]
+    },
+    {
+      "aptitude": "Long",
+      "baseValue": 142,
+      "baseRatings": {
+        "S-A": 142,
+        "B-C": 116,
+        "D-E-F": 103,
+        "G": 90
+      },
+      "goldValue": 367,
+      "goldRatings": {
+        "S-A": 367,
+        "B-C": 301,
+        "D-E-F": 267,
+        "G": 234
+      },
+      "pairs": [
+        ["Smoke Screen", "Illusionist"]
+      ]
+    },
+    {
+      "aptitude": "Pace",
+      "baseValue": 94,
+      "baseRatings": {
+        "S-A": 94,
+        "B-C": 77,
+        "D-E-F": 68,
+        "G": 60
+      },
+      "goldValue": 367,
+      "goldRatings": {
+        "S-A": 367,
+        "B-C": 301,
+        "D-E-F": 267,
+        "G": 234
+      },
+      "pairs": [
+        ["Disorient", "Dazzling Disorientation"]
       ]
     }
   ]

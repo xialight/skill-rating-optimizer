@@ -89,6 +89,14 @@
       "pairs": [
         ["Lucky Seven", "Super Lucky Seven"]
       ]
+    },
+    {
+      "aptitude": "Front Runner",
+      "baseValue": 407,
+      "baseRatings": { "S-A": 407, "B-C": 333, "D-E-F": 296, "G": 259 },
+      "pairs": [
+        ["Runaway", null]
+      ]
     }
   ]
 }

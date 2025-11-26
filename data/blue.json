@@ -1,17 +1,250 @@
 {
   "blocks": [
     {
-      "aptitude": "",
-      "baseValue": 100,
+      "aptitude": "Late",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "goldValue": 559,
+      "goldRatings": {
+        "S-A": 559,
+        "B-C": 457,
+        "D-E-F": 406,
+        "G": 356
+      },
+      "pairs": [
+        ["Be Still", "Lie In Wait"],
+        ["A Small Breather", "Relax"]
+      ]
+    },
+    {
+      "aptitude": "Dirt",
+      "baseValue": 217,
       "baseRatings": {
         "S-A": null,
         "B-C": null,
         "D-E-F": null,
         "G": null
       },
+      "goldValue": 508,
+      "goldRatings": {
+        "S-A": null,
+        "B-C": null,
+        "D-E-F": null,
+        "G": null
+      },
       "pairs": [
-        ["Test Skill 1", null],
-        ["Test Skill 2", null]
+        ["Familiar Ground", "Master of the Sands"]
+      ]
+    },
+    {
+      "aptitude": "Long",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "goldValue": 559,
+      "goldRatings": {
+        "S-A": 559,
+        "B-C": 457,
+        "D-E-F": 406,
+        "G": 356
+      },
+      "pairs": [
+        ["Free-Spirited", "Of Calm Mind"],
+        ["Deep Breaths", "Cooldown"],
+        ["Passing Pro", "VIP Pass"]
+      ]
+    },
+    {
+      "aptitude": "",
+      "baseValue": 263,
+      "baseRatings": {
+        "S-A": null,
+        "B-C": null,
+        "D-E-F": null,
+        "G": null
+      },
+      "goldValue": 633,
+      "goldRatings": {
+        "S-A": null,
+        "B-C": null,
+        "D-E-F": null,
+        "G": null
+      },
+      "pairs": [
+        ["Ignited Spirit STA", "Burning Spirit STA"]
+      ]
+    },
+    {
+      "aptitude": "",
+      "baseValue": 217,
+      "baseRatings": {
+        "S-A": null,
+        "B-C": null,
+        "D-E-F": null,
+        "G": null
+      },
+      "goldValue": 508,
+      "goldRatings": {
+        "S-A": null,
+        "B-C": null,
+        "D-E-F": null,
+        "G": null
+      },
+      "pairs": [
+        ["Corner Recovery ○", "Swinging Maestro"],
+        ["Straightaway Recovery", "Breath of Fresh Air"],
+        ["Lay Low", "Iron Will"],
+        ["Pace Strategy", "Indomitable"],
+        ["Calm in a Crowd", "Unruffled"],
+        ["Triple 7s", null],
+        ["Shake It Out", null]
+      ]
+    },
+    {
+      "aptitude": "Pace",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "goldValue": 559,
+      "goldRatings": {
+        "S-A": 559,
+        "B-C": 457,
+        "D-E-F": 406,
+        "G": 356
+      },
+      "pairs": [
+        ["Stamina to Spare", "Calm and Collected"],
+        ["Preferred Position", "Raceplanner"],
+        ["Hydrate", "Gourmand"]
+      ]
+    },
+    {
+      "aptitude": "End",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "goldValue": 559,
+      "goldRatings": {
+        "S-A": 559,
+        "B-C": 457,
+        "D-E-F": 406,
+        "G": 356
+      },
+      "pairs": [
+        ["Standing By", "Sleeping Lion"],
+        ["After-School Stroll", "Go-Home Specialist"],
+        ["Levelheaded", "Serenity"]
+      ]
+    },
+    {
+      "aptitude": "Sprint",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "pairs": [
+        ["Wait-and-See", null]
+      ]
+    },
+    {
+      "aptitude": "Mile",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "goldValue": 559,
+      "goldRatings": {
+        "S-A": 559,
+        "B-C": 457,
+        "D-E-F": 406,
+        "G": 356
+      },
+      "pairs": [
+        ["Watchful Eye", "Keen Eye"]
+      ]
+    },
+    {
+      "aptitude": "Medium",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "goldValue": 559,
+      "goldRatings": {
+        "S-A": 559,
+        "B-C": 457,
+        "D-E-F": 406,
+        "G": 356
+      },
+      "pairs": [
+        ["Rosy Outlook", "Trackblazer"],
+        ["Soft Step", "Miraculous Step"]
+      ]
+    },
+    {
+      "aptitude": "Long",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "goldValue": 559,
+      "goldRatings": {
+        "S-A": 559,
+        "B-C": 457,
+        "D-E-F": 406,
+        "G": 356
+      },
+      "pairs": [
+        ["Extra Tank", "Adrenaline Rush"]
+      ]
+    },
+    {
+      "aptitude": "Front",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "goldValue": 559,
+      "goldRatings": {
+        "S-A": 559,
+        "B-C": 457,
+        "D-E-F": 406,
+        "G": 356
+      },
+      "pairs": [
+        ["Moxie", "Restless"]
       ]
     }
   ]

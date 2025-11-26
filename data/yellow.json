@@ -228,14 +228,40 @@
         "D-E-F": 174,
         "G": 152
       },
+      "goldValue": 559,
+      "goldRatings": {
+        "S-A": 559,
+        "B-C": 457,
+        "D-E-F": 406,
+        "G": 356
+      },
       "pairs": [
-        ["Fast-Paced", null],
+        ["Fast-Paced", "Escape Artist"],
         ["Front Runner Straightaways ○", null],
         ["Front Runner Corners ○", null],
-        ["Leader's Pride", null],
-        ["Early Lead", null],
-        ["Final Push", null],
-        ["Second Wind", null]
+        ["Leader's Pride", "Top Runner"],
+        ["Final Push", "Unrestrained"],
+        ["Second Wind", "Reignition"]
+      ]
+    },
+    {
+      "aptitude": "Front",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "goldValue": 367,
+      "goldRatings": {
+        "S-A": 367,
+        "B-C": 301,
+        "D-E-F": 267,
+        "G": 234
+      },
+      "pairs": [
+        ["Early Lead", "Taking the Lead"]
       ]
     },
     {
@@ -247,8 +273,15 @@
         "D-E-F": 68,
         "G": 60
       },
+      "goldValue": 367,
+      "goldRatings": {
+        "S-A": 367,
+        "B-C": 301,
+        "D-E-F": 267,
+        "G": 234
+      },
       "pairs": [
-        ["Studious", null]
+        ["Studious", "The Bigger Picture"]
       ]
     },
     {
@@ -260,16 +293,42 @@
         "D-E-F": 174,
         "G": 152
       },
+      "goldValue": 559,
+      "goldRatings": {
+        "S-A": 559,
+        "B-C": 457,
+        "D-E-F": 406,
+        "G": 356
+      },
       "pairs": [
-        ["Position Pilfer", null],
-        ["Outer Swell", null],
+        ["Position Pilfer", "Fast & Furious"],
+        ["Outer Swell", "Rising Dragon"],
         ["Late Surger Straightaways ○", null],
         ["Late Surger Corners ○", null],
-        ["1,500,000 CC", null],
-        ["Slick Surge", null],
-        ["Fighter", null],
-        ["Fearless", null],
-        ["Full Throttle", null]
+        ["Slick Surge", "On your Left!"],
+        ["Fearless", "Dauntless"],
+        ["Full Throttle", "Keep Going!"]
+      ]
+    },
+    {
+      "aptitude": "Late Surger",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "goldValue": 367,
+      "goldRatings": {
+        "S-A": 367,
+        "B-C": 301,
+        "D-E-F": 267,
+        "G": 234
+      },
+      "pairs": [
+        ["1,500,000 CC", "15,000,000 CC"],
+        ["Fighter", "Hard Worker"]
       ]
     },
     {
@@ -281,13 +340,20 @@
         "D-E-F": 174,
         "G": 152
       },
+      "goldValue": 559,
+      "goldRatings": {
+        "S-A": 559,
+        "B-C": 457,
+        "D-E-F": 406,
+        "G": 356
+      },
       "pairs": [
-        ["Inside Scoop", null],
+        ["Inside Scoop", "Innate Experience"],
         ["Long Straightaways ○", null],
         ["Long Corners ○", null],
-        ["Keeping the Lead", null],
-        ["Pressure", null],
-        ["Feature Act", null]
+        ["Keeping the Lead", "Vanguard Spirit"],
+        ["Pressure", "Overwhelming Pressure"],
+        ["Feature Act", "Headliner"]
       ]
     },
     {
@@ -299,8 +365,15 @@
         "D-E-F": 103,
         "G": 90
       },
+      "goldValue": 367,
+      "goldRatings": {
+        "S-A": 367,
+        "B-C": 301,
+        "D-E-F": 267,
+        "G": 234
+      },
       "pairs": [
-        ["Hawkeye", null]
+        ["Hawkeye", "Clairvoyance"]
       ]
     },
     {
@@ -312,8 +385,15 @@
         "D-E-F": 139,
         "G": 122
       },
+      "goldValue": 433,
+      "goldRatings": {
+        "S-A": 433,
+        "B-C": 355,
+        "D-E-F": 315,
+        "G": 276
+      },
       "pairs": [
-        ["Thunderbolt Step", null]
+        ["Thunderbolt Step", "Lightning Step"]
       ]
     },
     {
@@ -325,16 +405,23 @@
         "D-E-F": 174,
         "G": 152
       },
+      "goldValue": 559,
+      "goldRatings": {
+        "S-A": 559,
+        "B-C": 457,
+        "D-E-F": 406,
+        "G": 356
+      },
       "pairs": [
-        ["Up-Tempo", null],
-        ["Steadfast", null],
+        ["Up-Tempo", "Killer Tunes"],
+        ["Steadfast", "Unyielding"],
         ["Medium Straightaways ○", null],
         ["Medium Corners ○", null],
-        ["All I've Got", null],
-        ["Fighting Spirit", null],
-        ["Eager", null],
-        ["With All My Soul", null],
-        ["Take the Chance", null]
+        ["All I've Got", "Come What May"],
+        ["Fighting Spirit", "Burning Soul"],
+        ["Eager", "Elated"],
+        ["With All My Soul", "Wild Wind"],
+        ["Take the Chance", "From the Brink"]
       ]
     },
     {
@@ -346,15 +433,41 @@
         "D-E-F": 174,
         "G": 152
       },
+      "goldValue": 559,
+      "goldRatings": {
+        "S-A": 559,
+        "B-C": 457,
+        "D-E-F": 406,
+        "G": 356
+      },
       "pairs": [
-        ["Productive Plan", null],
+        ["Productive Plan", "Mile Maven"],
         ["Mile Straightaways ○", null],
         ["Mile Corners ○", null],
-        ["Shifting Gears", null],
-        ["Unyielding Spirit", null],
-        ["Updrafters", null],
-        ["Acceleration", null],
-        ["Pumped", null]
+        ["Shifting Gears", "Changing Gears"],
+        ["Updrafters", "Furious Feat"],
+        ["Acceleration", "Step on the Gas!"],
+        ["Pumped", "Full of Vigor"]
+      ]
+    },
+    {
+      "aptitude": "Mile",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "goldValue": 367,
+      "goldRatings": {
+        "S-A": 367,
+        "B-C": 301,
+        "D-E-F": 267,
+        "G": 234
+      },
+      "pairs": [
+        ["Unyielding Spirit", "Big-Sisterly"]
       ]
     },
     {
@@ -366,14 +479,40 @@
         "D-E-F": 174,
         "G": 152
       },
+      "goldValue": 559,
+      "goldRatings": {
+        "S-A": 559,
+        "B-C": 457,
+        "D-E-F": 406,
+        "G": 356
+      },
       "pairs": [
-        ["Prepared to Pass", null],
+        ["Prepared to Pass", "Speed Star"],
         ["Pace Chaser Straightaways ○", null],
         ["Pace Chaser Corners ○", null],
-        ["Head-On", null],
-        ["Shrewd Step", null],
-        ["Straight Descent", null],
-        ["Tactical Tweak", null]
+        ["Head-On", "Neck and Neck"]
+      ]
+    },
+    {
+      "aptitude": "Pace Chaser",
+      "baseValue": 239,
+      "baseRatings": {
+        "S-A": 239,
+        "B-C": 195,
+        "D-E-F": 174,
+        "G": 152
+      },
+      "goldValue": 367,
+      "goldRatings": {
+        "S-A": 367,
+        "B-C": 301,
+        "D-E-F": 267,
+        "G": 234
+      },
+      "pairs": [
+        ["Shrewd Step", "Technician"],
+        ["Straight Descent", "Determined Descent"],
+        ["Tactical Tweak", "Shatterproof"]
       ]
     },
     {
@@ -385,8 +524,15 @@
         "D-E-F": 139,
         "G": 122
       },
+      "goldValue": 433,
+      "goldRatings": {
+        "S-A": 433,
+        "B-C": 355,
+        "D-E-F": 315,
+        "G": 276
+      },
       "pairs": [
-        ["Meticulous Measures", null]
+        ["Meticulous Measures", "Perfect Prep!"]
       ]
     },
     {
@@ -398,13 +544,20 @@
         "D-E-F": 174,
         "G": 152
       },
+      "goldValue": 559,
+      "goldRatings": {
+        "S-A": 559,
+        "B-C": 457,
+        "D-E-F": 406,
+        "G": 356
+      },
       "pairs": [
-        ["Gap Closer", null],
+        ["Gap Closer", "Blinding Flash"],
         ["Sprint Straightaways ○", null],
         ["Sprint Corners ○", null],
-        ["Sprinting Gear", null],
-        ["Countermeasure", null],
-        ["Light as a Feather", null]
+        ["Sprinting Gear", "Turbo Sprint"],
+        ["Countermeasure", "Plan X"],
+        ["Light as a Feather", "In High Spirits"]
       ]
     },
     {
@@ -416,8 +569,38 @@
         "D-E-F": 210,
         "G": 183
       },
+      "goldValue": 559,
+      "goldRatings": {
+        "S-A": 559,
+        "B-C": 457,
+        "D-E-F": 406,
+        "G": 356
+      },
       "pairs": [
-        ["Huge Lead", null]
+        ["Huge Lead", "Staggering Lead"]
+      ]
+    },
+    {
+      "aptitude": "",
+      "baseValue": 263,
+      "baseRatings": {
+        "S-A": null,
+        "B-C": null,
+        "D-E-F": null,
+        "G": null
+      },
+      "goldValue": 633,
+      "goldRatings": {
+        "S-A": null,
+        "B-C": null,
+        "D-E-F": null,
+        "G": null
+      },
+      "pairs": [
+        ["Ignited Spirit SPD", "Burning Spirit SPD"],
+        ["Ignited Spirit POW", "Burning Spirit POW"],
+        ["Ignited Spirit GUT", "Burning Spirit GUT"],
+        ["Ignited Spirit WIT", "Burning Spirit WIT"]
       ]
     }
   ]

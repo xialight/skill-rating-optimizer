@@ -1,9 +1,8 @@
 // ---------------- CONFIG ----------------
-const SKILL_TYPES = ["Yellow", "Special", "Blue", "Red", "Green", "Inherit", "Purple"];
+const SKILL_TYPES = ["Yellow", "Blue", "Red", "Green", "Inherit", "Purple"];
 
 const SKILL_FILES = {
   Yellow: "data/yellow.json",
-  Special: "data/special.json",
   Blue: "data/blue.json",
   Red: "data/red.json",
   Green: "data/green.json",
