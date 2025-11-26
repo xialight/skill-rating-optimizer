@@ -1,194 +1,50 @@
-[
-  {
-    "base": {
-      "name": "Right-Handed ×",
-      "value": 129
+{
+  "blocks": [
+    {
+      "aptitude": "",
+      "baseValue": 129,
+      "baseRatings": { "S-A": null, "B-C": null, "D-E-F": null, "G": null },
+      "pairs": [
+        ["Right-Handed ×", null],
+        ["Left-Handed ×", null],
+        ["Spring Runner ×", null],
+        ["Summer Runner ×", null],
+        ["Fall Runner ×", null],
+        ["Winter Runner ×", null],
+        ["Outer Post Averseness", null],
+        ["Inner Post Averseness", null],
+        ["G1 Averseness", null],
+        ["Tokyo Racecourse ×", null],
+        ["Nakayama Racecourse ×", null],
+        ["Hanshin Racecourse ×", null],
+        ["Kyoto Racecourse ×", null],
+        ["Chukyo Racecourse ×", null],
+        ["Sapporo Racecourse ×", null],
+        ["Hakodate Racecourse ×", null],
+        ["Fukushima Racecourse ×", null],
+        ["Niigata Racecourse ×", null],
+        ["Kokura Racecourse ×", null],
+        ["Oi Racecourse ×", null],
+        ["Standard Distance ×", null],
+        ["Non-Standard Distance ×", null],
+        ["Paddock Fright", null],
+        ["Wet Conditions ×", null],
+        ["Firm Conditions ×", null],
+        ["Wallflower", null],
+        ["Rainy Days ×", null],
+        ["Gatekept", null]
+      ]
+    },
+    {
+      "aptitude": "",
+      "baseValue": 262,
+      "baseRatings": { "S-A": null, "B-C": null, "D-E-F": null, "G": null },
+      "pairs": [
+        ["Corner Recovery ×", null],
+        ["Corner Adept ×", null],
+        ["Defeatist", null],
+        ["Corner Acceleration ×", null]
+      ]
     }
-  },
-  {
-    "base": {
-      "name": "Left-Handed ×",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Spring Runner ×",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Summer Runner ×",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Fall Runner ×",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Winter Runner ×",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Outer Post Averseness",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Inner Post Averseness",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "G1 Averseness",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Tokyo Racecourse ×",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Nakayama Racecourse ×",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Hanshin Racecourse ×",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Kyoto Racecourse ×",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Chukyo Racecourse ×",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Sapporo Racecourse ×",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Hakodate Racecourse ×",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Fukushima Racecourse ×",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Niigata Racecourse ×",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Kokura Racecourse ×",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Oi Racecourse ×",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Standard Distance ×",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Non-Standard Distance ×",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Paddock Fright",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Wet Conditions ×",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Firm Conditions ×",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Wallflower",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Rainy Days ×",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Gatekept",
-      "value": 129
-    }
-  },
-  {
-    "base": {
-      "name": "Corner Recovery ×",
-      "value": 262
-    }
-  },
-  {
-    "base": {
-      "name": "Corner Adept ×",
-      "value": 262
-    }
-  },
-  {
-    "base": {
-      "name": "Defeatist",
-      "value": 262
-    }
-  },
-  {
-    "base": {
-      "name": "Corner Acceleration ×",
-      "value": 262
-    }
-  }
-]
+  ]
+}

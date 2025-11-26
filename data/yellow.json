@@ -1,0 +1,27 @@
+{
+  "blocks": [
+    {
+      "aptitude": "Mile",
+      "baseValue": 239,
+      "baseRatings": { "S-A": 239, "B-C": 195, "D-E-F": 174, "G": 152 },
+      "goldValue": 367,
+      "goldRatings": { "S-A": 367, "B-C": 301, "D-E-F": 267, "G": 234 },
+      "pairs": [
+        ["Unyielding Spirit", "Big-Sisterly"]
+      ]
+    },
+    {
+      "aptitude": "",
+      "baseValue": 217,
+      "baseRatings": { "S-A": null, "B-C": null, "D-E-F": null, "G": null },
+      "goldValue": 508,
+      "goldRatings": { "S-A": null, "B-C": null, "D-E-F": null, "G": null },
+      "pairs": [
+        ["Corner Adept", "Professor of Curvature"],
+        ["Straightaway Adept", "Beeline Burst"],
+        ["Ramp Up", "It's On!"],
+        ["Homestretch Haste", "In Body and Mind"]
+      ]
+    }
+  ]
+}

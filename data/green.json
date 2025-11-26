@@ -1,520 +1,94 @@
-[
-  {
-    "base": {
-      "name": "Right-Handed",
-      "value": 129,
+{
+  "blocks": [
+    {
       "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Left-Handed",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Spring Runner",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Summer Runner",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Fall Runner",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Winter Runner",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Outer Post Proficiency",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Inner Post Proficiency",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Maverick",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Long Shot",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Sympathy",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Lone Wolf",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Tokyo Racecourse",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Nakayama Racecourse",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Hanshin Racecourse",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Kyoto Racecourse",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Chukuyo Racecourse",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Sapporo Racecourse",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Hakodate Racecourse",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Fukushima Racecourse",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Niigata Racecourse",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Kokura Racecourse",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Oi Racecourse",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Standard Distance",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Non-Standard Distance",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Restraint",
-      "value": 217,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Firm Conditions",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Wet Conditions",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Competitive Spirit",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Sunny Days",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Cloudy Days",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Rainy Days",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Snowy Days",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Target In Sight",
-      "value": 129,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Front Runner Savvy",
-      "value": 129,
-      "aptitude": "Front",
-      "ratings": {
-        "S-A": 191,
-        "B-C": 157,
-        "D-E-F": 139,
-        "G": 122
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Pace Chaser Savvy",
-      "value": 129,
-      "aptitude": "Pace Chaser",
-      "ratings": {
-        "S-A": 191,
-        "B-C": 157,
-        "D-E-F": 139,
-        "G": 122
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Late Surger Savvy",
-      "value": 129,
-      "aptitude": "Late Surger",
-      "ratings": {
-        "S-A": 191,
-        "B-C": 157,
-        "D-E-F": 139,
-        "G": 122
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "End Closer Savvy",
-      "value": 129,
-      "aptitude": "End Closer",
-      "ratings": {
-        "S-A": 191,
-        "B-C": 157,
-        "D-E-F": 139,
-        "G": 122
-      }
-    }
-  },
-  {
-    "base": {
-      "name": "Lucky Seven",
-      "value": 174,
-      "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
+      "baseValue": 129,
+      "baseRatings": { "S-A": null, "B-C": null, "D-E-F": null, "G": null },
+      "pairs": [
+        ["Right-Handed", null],
+        ["Left-Handed", null],
+        ["Spring Runner", null],
+        ["Summer Runner", null],
+        ["Fall Runner", null],
+        ["Winter Runner", null],
+        ["Outer Post Proficiency", null],
+        ["Inner Post Proficiency", null],
+        ["Maverick", null],
+        ["Long Shot", null],
+        ["Sympathy", null],
+        ["Lone Wolf", null],
+        ["Tokyo Racecourse", null],
+        ["Nakayama Racecourse", null],
+        ["Hanshin Racecourse", null],
+        ["Kyoto Racecourse", null],
+        ["Chukuyo Racecourse", null],
+        ["Sapporo Racecourse", null],
+        ["Hakodate Racecourse", null],
+        ["Fukushima Racecourse", null],
+        ["Niigata Racecourse", null],
+        ["Kokura Racecourse", null],
+        ["Oi Racecourse", null],
+        ["Standard Distance", null],
+        ["Non-Standard Distance", null],
+        ["Firm Conditions", null],
+        ["Wet Conditions", null],
+        ["Competitive Spirit", null],
+        ["Sunny Days", null],
+        ["Cloudy Days", null],
+        ["Rainy Days", null],
+        ["Snowy Days", null],
+        ["Target In Sight", null]
+      ]
     },
-	"upgraded": {
-      "name": "Super Lucky Seven",
-      "value": 334,
+    {
       "aptitude": "",
-      "ratings": {
-        "S-A": null,
-        "B-C": null,
-        "D-E-F": null,
-        "G": null
-      }
+      "baseValue": 217,
+      "baseRatings": { "S-A": null, "B-C": null, "D-E-F": null, "G": null },
+      "pairs": [
+        ["Restraint", null]
+      ]
+    },
+    {
+      "aptitude": "Front",
+      "baseValue": 129,
+      "baseRatings": { "S-A": 191, "B-C": 157, "D-E-F": 139, "G": 122 },
+      "pairs": [
+        ["Front Runner Savvy", null]
+      ]
+    },
+    {
+      "aptitude": "Pace Chaser",
+      "baseValue": 129,
+      "baseRatings": { "S-A": 191, "B-C": 157, "D-E-F": 139, "G": 122 },
+      "pairs": [
+        ["Pace Chaser Savvy", null]
+      ]
+    },
+    {
+      "aptitude": "Late Surger",
+      "baseValue": 129,
+      "baseRatings": { "S-A": 191, "B-C": 157, "D-E-F": 139, "G": 122 },
+      "pairs": [
+        ["Late Surger Savvy", null]
+      ]
+    },
+    {
+      "aptitude": "End Closer",
+      "baseValue": 129,
+      "baseRatings": { "S-A": 191, "B-C": 157, "D-E-F": 139, "G": 122 },
+      "pairs": [
+        ["End Closer Savvy", null]
+      ]
+    },
+    {
+      "aptitude": "",
+      "baseValue": 174,
+      "baseRatings": { "S-A": null, "B-C": null, "D-E-F": null, "G": null },
+      "goldValue": 334,
+      "goldRatings": { "S-A": null, "B-C": null, "D-E-F": null, "G": null },
+      "pairs": [
+        ["Lucky Seven", "Super Lucky Seven"]
+      ]
     }
-  }
-]
+  ]
+}
