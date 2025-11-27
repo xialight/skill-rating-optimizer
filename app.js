@@ -20,7 +20,7 @@ const APTITUDES = [
   { key: "Medium",      label: "Medium" },
   { key: "Long",        label: "Long" },
 
-  { key: "Front_Runner",       label: "Front Runner" },       
+  { key: "Front",       label: "Front Runner" },       
   { key: "Pace_Chaser", label: "Pace Chaser" },
   { key: "Late_Surger", label: "Late Surger" },
   { key: "End_Closer",  label: "End Closer" }
