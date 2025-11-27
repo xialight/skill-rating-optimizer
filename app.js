@@ -669,12 +669,23 @@ function optimize() {
     const gradeUsed = s.aptitude ? getAptitudeGrades()[s.aptitude] : "-";
 
     const li = document.createElement("li");
+    li.classList.add("buy-item");
+
     li.innerHTML = `
-      <span class="highlight">${s.name}</span>
-      <span class="pill-small variant-pill variant-${s.variant}">${s.variant}</span>
-      <span class="pill-small">Cost: ${it.cost}</span>
-      <span class="pill-small">Rating: ${it.rating.toFixed(2)}</span>
-      ${s.aptitude ? `<span class="pill-small">${s.aptitude} (${gradeUsed})</span>` : ""}
+      <label class="buy-item-label">
+        <input type="checkbox" class="buy-check">
+        <div class="buy-item-content">
+          <div class="buy-main-row">
+            <span class="highlight">${s.name}</span>
+            <span class="pill-small variant-pill variant-${s.variant}">${s.variant}</span>
+          </div>
+          <div class="buy-meta-row">
+            <span class="pill-small">Cost: ${it.cost}</span>
+            <span class="pill-small">Rating: ${it.rating.toFixed(2)}</span>
+            ${s.aptitude ? `<span class="pill-small">${s.aptitude} (${gradeUsed})</span>` : ""}
+          </div>
+        </div>
+      </label>
     `;
     chosenList.appendChild(li);
   }

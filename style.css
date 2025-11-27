@@ -279,6 +279,53 @@ tbody tr:nth-child(even) {
   white-space: nowrap;
 }
 
+#chosenList {
+  list-style: none;
+  padding-left: 0;
+  margin: 8px 0 0;
+}
+
+.buy-item {
+  margin-bottom: 6px;
+}
+
+.buy-item-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.buy-item-label input.buy-check {
+  margin-top: 3px;
+}
+
+.buy-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.buy-main-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.buy-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.buy-item-label input.buy-check {
+  transform: scale(1.35);   /* increase the size */
+  margin-right: 4px;
+  cursor: pointer;
+}
+
 .results {
   margin-top: 1.3rem;
   padding-top: 1rem;
